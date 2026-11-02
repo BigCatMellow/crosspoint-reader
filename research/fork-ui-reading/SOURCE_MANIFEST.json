@@ -1,0 +1,207 @@
+{
+  "purpose": "Reference-only fork research for X4 Pro UI and reading quality",
+  "target_repository": "BigCatMellow/crosspoint-reader",
+  "target_branch": "develop",
+  "target_sha": "e8299b5f126817282939059d6505f90429489276",
+  "checked_date": "2026-11-02",
+  "sources": [
+    {
+      "repo": "uxjulia/CrossInk",
+      "commit": "9914146eeae7b46b300f475a16c32426fc02ec1f",
+      "path": "src/activities/reader/StablePageSelectionModel.h",
+      "url": "https://github.com/uxjulia/CrossInk/blob/9914146eeae7b46b300f475a16c32426fc02ec1f/src/activities/reader/StablePageSelectionModel.h",
+      "kind": "snapshot",
+      "local": "reference_code/crossink/StablePageSelectionModel.h",
+      "blob_sha": "8d3a2a4499ed3b208a6ce8d754706fc005792d19"
+    },
+    {
+      "repo": "uxjulia/CrossInk",
+      "commit": "9914146eeae7b46b300f475a16c32426fc02ec1f",
+      "path": "src/activities/reader/ReaderStatusBarTapTarget.h",
+      "url": "https://github.com/uxjulia/CrossInk/blob/9914146eeae7b46b300f475a16c32426fc02ec1f/src/activities/reader/ReaderStatusBarTapTarget.h",
+      "kind": "snapshot",
+      "local": "reference_code/crossink/ReaderStatusBarTapTarget.h",
+      "blob_sha": "ca06a20843f64bbe81579fde03594eeaca615c22"
+    },
+    {
+      "repo": "Belphemur/Xerif-eReader",
+      "commit": "b5cb9d2d16373a7858084f7615f22d0d6b7913fc",
+      "path": "src/activities/reader/PageTurnBatch.h",
+      "url": "https://github.com/Belphemur/Xerif-eReader/blob/b5cb9d2d16373a7858084f7615f22d0d6b7913fc/src/activities/reader/PageTurnBatch.h",
+      "kind": "snapshot",
+      "local": "reference_code/xerif/PageTurnBatch.h",
+      "blob_sha": "8fbbbec105b6211c37a2877e5a3c10b554c9b113"
+    },
+    {
+      "repo": "Belphemur/Xerif-eReader",
+      "commit": "b5cb9d2d16373a7858084f7615f22d0d6b7913fc",
+      "path": "lib/GfxRenderer/GrayPlanes.h",
+      "url": "https://github.com/Belphemur/Xerif-eReader/blob/b5cb9d2d16373a7858084f7615f22d0d6b7913fc/lib/GfxRenderer/GrayPlanes.h",
+      "kind": "snapshot",
+      "local": "reference_code/xerif/GrayPlanes.h",
+      "blob_sha": "de5b1498b403f70b4a33fcee12dd8393985ac33e"
+    },
+    {
+      "repo": "jpirnay/witchhunt-reader",
+      "commit": "f6a1019385d6f5be96ee3eebba146b76d00b8272",
+      "path": "lib/EpdFont/SmallCaps.h",
+      "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/lib/EpdFont/SmallCaps.h",
+      "kind": "snapshot",
+      "local": "reference_code/witch/SmallCaps.h",
+      "blob_sha": "0c0470da682bc38b63733453cc5041fdf92e6564"
+    },
+    {
+      "repo": "jpirnay/witchhunt-reader",
+      "commit": "f6a1019385d6f5be96ee3eebba146b76d00b8272",
+      "path": "lib/GfxRenderer/ScaledGlyphResample.h",
+      "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/lib/GfxRenderer/ScaledGlyphResample.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": "2bee56a3e639441e51a9337b9b7e129ec00d48a3"
+    },
+    {
+      "repo": "jpirnay/witchhunt-reader",
+      "commit": "f6a1019385d6f5be96ee3eebba146b76d00b8272",
+      "path": "lib/GfxRenderer/TextWrap.h",
+      "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/lib/GfxRenderer/TextWrap.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": "23ecde0a224dfd20f6bd1d566593633256127ef8"
+    },
+    {
+      "repo": "jpirnay/witchhunt-reader",
+      "commit": "f6a1019385d6f5be96ee3eebba146b76d00b8272",
+      "path": "lib/Epub/Epub/TypographyProfile.h",
+      "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/lib/Epub/Epub/TypographyProfile.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": null
+    },
+    {
+      "repo": "jpirnay/witchhunt-reader",
+      "commit": "f6a1019385d6f5be96ee3eebba146b76d00b8272",
+      "path": "lib/Epub/Epub/TypographyProfile.cpp",
+      "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/lib/Epub/Epub/TypographyProfile.cpp",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": null
+    },
+    {
+      "repo": "jpirnay/witchhunt-reader",
+      "commit": "f6a1019385d6f5be96ee3eebba146b76d00b8272",
+      "path": "src/activities/reader/PreRenderGate.h",
+      "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/src/activities/reader/PreRenderGate.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": "2d13c2e9156f08aca8dba17b1a0f0c8ba4c2ab61"
+    },
+    {
+      "repo": "jpirnay/witchhunt-reader",
+      "commit": "f6a1019385d6f5be96ee3eebba146b76d00b8272",
+      "path": "docs/background-rendering.md",
+      "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/docs/background-rendering.md",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": null
+    },
+    {
+      "repo": "uxjulia/CrossInk",
+      "commit": "9914146eeae7b46b300f475a16c32426fc02ec1f",
+      "path": "src/activities/reader/ReaderPinchGesture.h",
+      "url": "https://github.com/uxjulia/CrossInk/blob/9914146eeae7b46b300f475a16c32426fc02ec1f/src/activities/reader/ReaderPinchGesture.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": "39f18389599e0f6fe60e7e25137b36f69e2c4d8a"
+    },
+    {
+      "repo": "uxjulia/CrossInk",
+      "commit": "9914146eeae7b46b300f475a16c32426fc02ec1f",
+      "path": "src/activities/reader/ReaderFontLoading.h",
+      "url": "https://github.com/uxjulia/CrossInk/blob/9914146eeae7b46b300f475a16c32426fc02ec1f/src/activities/reader/ReaderFontLoading.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": "dbd1bffd40005bfe2ce12d31a4a7d95e91f3eacb"
+    },
+    {
+      "repo": "uxjulia/CrossInk",
+      "commit": "9914146eeae7b46b300f475a16c32426fc02ec1f",
+      "path": "src/activities/reader/TouchReaderPreviewModel.h",
+      "url": "https://github.com/uxjulia/CrossInk/blob/9914146eeae7b46b300f475a16c32426fc02ec1f/src/activities/reader/TouchReaderPreviewModel.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": "6a1ad68cc27fc76d47ec1867e98b12b625e2756c"
+    },
+    {
+      "repo": "uxjulia/CrossInk",
+      "commit": "9914146eeae7b46b300f475a16c32426fc02ec1f",
+      "path": "docs/reader-features.md",
+      "url": "https://github.com/uxjulia/CrossInk/blob/9914146eeae7b46b300f475a16c32426fc02ec1f/docs/reader-features.md",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": null
+    },
+    {
+      "repo": "Belphemur/Xerif-eReader",
+      "commit": "b5cb9d2d16373a7858084f7615f22d0d6b7913fc",
+      "path": "src/activities/reader/QuickPageRelayout.h",
+      "url": "https://github.com/Belphemur/Xerif-eReader/blob/b5cb9d2d16373a7858084f7615f22d0d6b7913fc/src/activities/reader/QuickPageRelayout.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": "71ba8c7de9599062bf2cdd2ecdee98c05d00672c"
+    },
+    {
+      "repo": "Belphemur/Xerif-eReader",
+      "commit": "b5cb9d2d16373a7858084f7615f22d0d6b7913fc",
+      "path": "src/activities/reader/FibpPrefetchPolicy.h",
+      "url": "https://github.com/Belphemur/Xerif-eReader/blob/b5cb9d2d16373a7858084f7615f22d0d6b7913fc/src/activities/reader/FibpPrefetchPolicy.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": "61542beca975eec91a97e3f3e9974d867ac7661c"
+    },
+    {
+      "repo": "bigbag/papyrix-reader",
+      "commit": "93425d868c79156b77fcb97a167b490ea3663e87",
+      "path": "lib/RenderTypes/src/ParsedText.cpp",
+      "url": "https://github.com/bigbag/papyrix-reader/blob/93425d868c79156b77fcb97a167b490ea3663e87/lib/RenderTypes/src/ParsedText.cpp",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": null
+    },
+    {
+      "repo": "bigbag/papyrix-reader",
+      "commit": "93425d868c79156b77fcb97a167b490ea3663e87",
+      "path": "test/unit/epub/ParsedTextTest.cpp",
+      "url": "https://github.com/bigbag/papyrix-reader/blob/93425d868c79156b77fcb97a167b490ea3663e87/test/unit/epub/ParsedTextTest.cpp",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": null
+    },
+    {
+      "repo": "bigbag/papyrix-reader",
+      "commit": "93425d868c79156b77fcb97a167b490ea3663e87",
+      "path": "docs/fonts.md",
+      "url": "https://github.com/bigbag/papyrix-reader/blob/93425d868c79156b77fcb97a167b490ea3663e87/docs/fonts.md",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": null
+    },
+    {
+      "repo": "obijuankenobiii/inx",
+      "commit": "8c632186da53e3d1b72ae7d5c72d1cf4855eb03f",
+      "path": "src/activity/reader/Epub/MenuDrawer.h",
+      "url": "https://github.com/obijuankenobiii/inx/blob/8c632186da53e3d1b72ae7d5c72d1cf4855eb03f/src/activity/reader/Epub/MenuDrawer.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": null
+    },
+    {
+      "repo": "obijuankenobiii/inx",
+      "commit": "8c632186da53e3d1b72ae7d5c72d1cf4855eb03f",
+      "path": "src/activity/reader/Epub/PresetPickerUi.h",
+      "url": "https://github.com/obijuankenobiii/inx/blob/8c632186da53e3d1b72ae7d5c72d1cf4855eb03f/src/activity/reader/Epub/PresetPickerUi.h",
+      "kind": "reference",
+      "local": null,
+      "blob_sha": null
+    }
+  ]
+}
