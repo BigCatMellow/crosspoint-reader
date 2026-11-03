@@ -1,9 +1,8 @@
-<!doctype html><html><head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Xteink X4 Pro — True Size UI Preview</title><style>
+<!doctype html><html><head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Literata:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Xteink X4 Pro — True Size UI Preview</title><style>
+:root{--reader-font:"Literata",Georgia,serif}
 *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#d5d2c8;font-family:"Inter", Arial, sans-serif;color:#111}.device{width:426px;background:#292929;border-radius:28px;padding:18px}.screen{width:390px;height:610px;background:#f6f4ec;border:2px solid #111;position:relative;overflow:hidden}.page{display:none;position:absolute;inset:0;padding:18px 18px 62px;background:#f6f4ec}.page.active{display:block}.top{display:flex;justify-content:space-between;border-bottom:1px solid #999;padding-bottom:9px;margin-bottom:18px;font-size:14px;font-weight:700}h1{font:700 27px "Inter", Arial, sans-serif;margin:0 0 14px}.k{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}.hero{border:2px solid #111;padding:16px;margin-bottom:16px}.title{font:700 22px "Inter", Arial, sans-serif}.meta{font-size:13px;color:#444;margin-top:3px}.progress{height:11px;border:1px solid #111;margin-top:14px}.progress b{display:block;width:38%;height:100%;background:#111}.stack{display:grid;gap:10px}button,.row{min-height:48px;border:2px solid #111;background:transparent;padding:10px 12px;font-weight:700;font-size:16px;text-align:left;cursor:pointer}.row{border-width:1px}.row:hover,button:hover{background:#111;color:#f6f4ec}.secondary{border-width:1px}.footer{position:absolute;left:0;right:0;bottom:0;height:52px;border-top:1px solid #999;display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;padding:8px 12px}.footer button{min-height:34px;padding:6px;font-size:13px;text-align:center}.footer span{font-size:13px;font-weight:700}.reader{padding:28px 24px 55px;font:18px/1.58 Georgia,serif}.reader .menu{position:absolute;left:16px;bottom:11px;width:auto;min-height:34px;padding:6px 12px;font-size:13px}.reader .pct{position:absolute;right:18px;bottom:17px;font:13px Arial,sans-serif}.preview{border:1px solid #111;padding:20px;text-align:center;font:24px "Inter", Arial, sans-serif;margin-bottom:16px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.center{text-align:center}@media(max-width:460px){body{background:#292929}.device{transform:scale(.9)}}
 .reader{padding:24px 24px 62px;font:21px/1.58 "Inter", Arial, sans-serif}
 .reader .k{font:700 12px Arial,sans-serif;margin-bottom:5px}
-#readerText{font:21px/1.58 "Inter", Arial, sans-serif}
-#readerText p{margin:0}
 .reader-footer{position:absolute;left:0;right:0;bottom:0;height:52px;border-top:1px solid #999;display:grid;grid-template-columns:54px 1fr 54px;align-items:center;padding:7px 12px;background:#f6f4ec;font:700 13px Arial,sans-serif;text-align:center}
 .reader-footer button{min-height:34px;padding:4px;text-align:center;font-size:20px}
 .reader-footer button:disabled{opacity:.25;background:transparent;color:#111;cursor:default}
@@ -18,7 +17,6 @@
 .reader-nav{height:46px;margin:0 -24px 14px;padding:0 14px;border-bottom:1px solid #999;display:grid;grid-template-columns:82px 1fr 82px;align-items:center;font:700 12px "Inter", Arial, sans-serif}
 .reader-nav button{min-height:32px;padding:4px 7px;font-size:12px;border:1px solid #111}
 .reader-nav .chapter{text-align:center;white-space:nowrap}
-#readerText{height:496px;overflow:hidden;font:21px/1.58 "Inter", Arial, sans-serif}
 #readerText p{margin:0}
 
 :root{--nav-card-h:82px}
@@ -456,7 +454,6 @@
 .page.reader{padding:0 24px 0}
 .reader-nav{height:52px;min-height:52px;margin:0 -24px 0;grid-template-columns:74px minmax(0,1fr) 74px}
 .reader-nav .chapter{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
-#readerText{height:calc(100% - 114px);padding-top:24px;overflow:hidden;white-space:pre-line;cursor:pointer;font-family:Georgia,serif;box-sizing:border-box;line-height:1.58}
 .reader-footer{height:62px}
 .reader-footer button{min-height:44px;width:54px;font-size:26px}
 #readerQuickSettings .reader-nav{height:52px;min-height:52px}
@@ -465,7 +462,7 @@
 #readerQuickSettings .quick-setting,#reading .quick-setting{margin-bottom:25px}
 #readerQuickSettings .three button,#reading .three button{min-height:68px}
 #readerQuickSettings .two button,#reading .two button{min-height:62px}
-.quick-preview-text{font-family:Georgia,serif}
+.quick-preview-text{font-family:var(--reader-font)}
 .settings-menu button:disabled{opacity:.4;cursor:not-allowed}
 .settings-menu button:disabled:hover{background:transparent;color:#111}
 @media(max-width:540px){body{background:#292929}.device{transform:scale(min(.92, calc((100vw - 12px) / 516)));transform-origin:top center;margin-top:4px}}
@@ -507,7 +504,6 @@ button:focus-visible,.row:focus-visible,.hero.action:focus-visible,#book .chapte
 .battery-status svg{width:23px;height:14px;flex:0 0 auto}
 /* Reader text area is fixed across chrome show/hide so page position never jumps. */
 #reader.page{padding:0 24px 0}
-#reader #readerText{height:calc(100% - 39px);padding-top:29px;padding-bottom:6px;cursor:pointer;font-family:Georgia,serif;overflow:hidden;box-sizing:border-box}
 #reader .reader-nav,#reader .reader-footer{display:none;position:absolute;z-index:5;left:0;right:0;background:var(--paper)}
 #reader .reader-nav{top:0;height:54px;min-height:54px;margin:0;padding:0 18px;grid-template-columns:75px 1fr 75px;border-bottom:1px solid var(--rule)}
 #reader .reader-footer{bottom:0;height:65px;border-top:1px solid var(--rule)}
@@ -587,7 +583,8 @@ button:focus-visible,.row:focus-visible,.hero.action:focus-visible,#book .chapte
 }
 #readerQuickSettings .reader-nav .back-arrow,#reader .reader-nav .back-arrow{width:var(--header-button-h)}
 /* Reader body takes the space previously reserved for a page counter. */
-#reader #readerText{height:100%;padding-top:26px;padding-bottom:24px}
+/* Size, line height and side margins are set inline by applyReaderPrefs(). */
+#reader #readerText{height:100%;padding-top:26px;padding-bottom:24px;overflow:hidden;white-space:pre-line;cursor:pointer;font-family:var(--reader-font);box-sizing:border-box}
 /* Disabled state communicates boundaries without auxiliary page numbers. */
 .footer button:disabled,#reader .reader-footer button:disabled,
 .quick-setting button:disabled{opacity:.52;cursor:default}
@@ -622,13 +619,14 @@ body { width: 100vw; height: 100dvh; min-height: 0; place-items: center; }
 @media (max-width: 540px) {
   .preview-stage > .device { transform: scale(var(--device-preview-scale)); margin: 0; }
 }
-/* The preview holds the exact height needed at 30px with Relaxed spacing.
-   Font changes affect the sample, never the surrounding control layout. */
+/* Fixed height so font changes never move the controls. Holds two lines at
+   22 pt (46 px) with Relaxed spacing; larger samples crop from the bottom. */
 #reading .quick-preview, #readerQuickSettings .quick-preview {
-  height: 144px;
-  min-height: 144px;
-  max-height: 144px;
+  height: 200px;
+  min-height: 200px;
+  max-height: 200px;
   overflow: hidden;
+  align-items: flex-start;
 }
 
 /* Calibrated actual physical size: display 4.3-inch diagonal / 480x800,
@@ -748,11 +746,11 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
   <div class="quick-setting">
     <div class="quick-label">
       <span>Text Size</span>
-      <span id="fontValue">21</span>
+      <span id="fontValue">14 pt</span>
     </div>
     <div class="two">
-      <button class="center" onclick="changeReaderFont(-1)" aria-label="Decrease text size">−</button>
-      <button class="center" onclick="changeReaderFont(1)" aria-label="Increase text size">+</button>
+      <button class="center" onclick="changeReaderFont(-1)" data-font-step="-1" aria-label="Decrease text size">−</button>
+      <button class="center" onclick="changeReaderFont(1)" data-font-step="1" aria-label="Increase text size">+</button>
     </div>
   </div>
 
@@ -788,11 +786,11 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
   <div class="quick-setting">
     <div class="quick-label">
       <span>Text Size</span>
-      <span id="fullFontValue">21</span>
+      <span id="fullFontValue">14 pt</span>
     </div>
     <div class="two">
-      <button class="center" onclick="changeReaderFont(-1)" aria-label="Decrease text size">−</button>
-      <button class="center" onclick="changeReaderFont(1)" aria-label="Increase text size">+</button>
+      <button class="center" onclick="changeReaderFont(-1)" data-font-step="-1" aria-label="Decrease text size">−</button>
+      <button class="center" onclick="changeReaderFont(1)" data-font-step="1" aria-label="Increase text size">+</button>
     </div>
   </div>
 
@@ -844,7 +842,13 @@ let activeChapter = 0;
 let returnToChapters = 'book';
 let readingPages = [];
 let currentReadPage = 0;
-let readerFontSize = 21;
+// Mirrors firmware: VECTOR_READER_POINT_SIZES (src/ReaderFontSizes.h), default
+// DEFAULT_FONT_POINT_SIZE (src/CrossPointSettings.h), pt -> px at FONT_RASTER_DPI
+// (lib/EpdFont/EpdFontData.h). The X4 Pro has PSRAM, so the vector list applies.
+const READER_POINT_SIZES = [8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
+const FONT_RASTER_DPI = 150;
+let readerPointSize = 14;
+function readerFontPx() { return readerPointSize * FONT_RASTER_DPI / 72; }
 let readerLineHeight = 1.58;
 let readerMargin = 10;
 let savedPosition = 0;
@@ -970,13 +974,13 @@ function renderChapters() {
 function updateSettingsMirror(config) {
   const preview=document.getElementById(config.previewId);
   if(preview){
-    preview.style.fontSize=readerFontSize+'px';
+    preview.style.fontSize=readerFontPx()+'px';
     preview.style.lineHeight=String(readerLineHeight);
     preview.style.paddingLeft=readerMargin+'px';
     preview.style.paddingRight=readerMargin+'px';
   }
   const fontValue=document.getElementById(config.fontValueId);
-  if(fontValue) fontValue.textContent=readerFontSize+' px';
+  if(fontValue) fontValue.textContent=readerPointSize+' pt';
   [...config.spaceIds,...config.marginIds].forEach(id=>{
     const button=document.getElementById(id);
     if(button){button.classList.remove('active');button.setAttribute('aria-pressed','false');}
@@ -988,21 +992,18 @@ function updateSettingsMirror(config) {
     if(button){button.classList.add('active');button.setAttribute('aria-pressed','true');}
   }
   // At a font-size limit, make the unavailable direction visibly non-actionable.
-  document.querySelectorAll('button[onclick="changeReaderFont(-1)"]').forEach(button=>{button.disabled=readerFontSize<=15;});
-  document.querySelectorAll('button[onclick="changeReaderFont(1)"]').forEach(button=>{button.disabled=readerFontSize>=30;});
+  document.querySelectorAll('[data-font-step="-1"]').forEach(button=>{button.disabled=readerPointSize<=READER_POINT_SIZES[0];});
+  document.querySelectorAll('[data-font-step="1"]').forEach(button=>{button.disabled=readerPointSize>=READER_POINT_SIZES.at(-1);});
 }
 function applyReaderPrefs() {
   const target=document.getElementById('readerText');
-  target.style.fontSize=readerFontSize+'px';
+  target.style.fontSize=readerFontPx()+'px';
   target.style.lineHeight=String(readerLineHeight);
   target.style.paddingLeft=readerMargin+'px';
   target.style.paddingRight=readerMargin+'px';
   updateSettingsMirror({previewId:'quickPreviewText',fontValueId:'fontValue',spaceIds:['spaceTight','spaceNormal','spaceRoomy'],marginIds:['marginNarrow','marginNormal','marginWide']});
   updateSettingsMirror({previewId:'fullQuickPreviewText',fontValueId:'fullFontValue',spaceIds:['fullSpaceTight','fullSpaceNormal','fullSpaceRoomy'],marginIds:['fullMarginNarrow','fullMarginNormal','fullMarginWide']});
   pendingRepaginate=true;
-}
-function pageSource() {
-  return DEMO_CHAPTER_TEXT;
 }
 function pageText(tokens,start,end) {
   return tokens.slice(start,end).join(' ').replace(/ *\n\n */g,'\n\n');
@@ -1011,14 +1012,14 @@ function paginateReading(preservePosition=true) {
   const target=document.getElementById('readerText');
   const previousOffset=preservePosition&&readingPages.length?readingPages[currentReadPage]?.start??savedPosition:0;
   applyReaderPrefs();
-  const tokens=pageSource().match(/\n\n|\S+/g)||[];
+  const tokens=DEMO_CHAPTER_TEXT.match(/\n\n|\S+/g)||[];
   const cs=getComputedStyle(target);
   const width=target.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
   const height=target.clientHeight;
   if(width<10||height<10) return;
   const measure=document.createElement('div');
   const contentHeight=height-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
-  Object.assign(measure.style,{position:'absolute',left:'-10000px',top:'0',visibility:'hidden',width:width+'px',fontFamily:cs.fontFamily,fontSize:cs.fontSize,lineHeight:cs.lineHeight,fontWeight:cs.fontWeight,whiteSpace:'pre-line',overflow:'visible',padding:'0',margin:'0'});
+  Object.assign(measure.style,{position:'absolute',left:'-10000px',top:'0',visibility:'hidden',width:width+'px',fontFamily:cs.fontFamily,fontSize:cs.fontSize,lineHeight:cs.lineHeight,fontWeight:cs.fontWeight,fontStyle:cs.fontStyle,fontKerning:cs.fontKerning,fontFeatureSettings:cs.fontFeatureSettings,letterSpacing:cs.letterSpacing,wordSpacing:cs.wordSpacing,textAlign:cs.textAlign,hyphens:cs.hyphens,whiteSpace:'pre-line',overflow:'visible',padding:'0',margin:'0'});
   document.body.appendChild(measure);
   readingPages=[];
   let start=0;
@@ -1027,7 +1028,7 @@ function paginateReading(preservePosition=true) {
     while(lo+1<hi){
       const mid=Math.floor((lo+hi)/2);
       measure.textContent=pageText(tokens,start,mid);
-      if(measure.scrollHeight<=contentHeight-28)lo=mid;else hi=mid;
+      if(measure.scrollHeight<=contentHeight)lo=mid;else hi=mid;
     }
     const end=Math.max(start+1,lo);
     readingPages.push({start,end,text:pageText(tokens,start,end)});
@@ -1074,12 +1075,12 @@ function go(id) {
 function openReaderSettings() {go('readerQuickSettings');}
 function closeReaderSettings() {go('reader');}
 function changeReaderFont(delta) {
-  readerFontSize=Math.min(30,Math.max(15,readerFontSize+delta));
+  const i=READER_POINT_SIZES.indexOf(readerPointSize)+delta;
+  readerPointSize=READER_POINT_SIZES[Math.min(READER_POINT_SIZES.length-1,Math.max(0,i))];
   applyReaderPrefs();
 }
 function setReaderSpacing(value) {readerLineHeight=value;applyReaderPrefs();}
 function setReaderMargin(value) {readerMargin=value;applyReaderPrefs();}
-function size(delta) {changeReaderFont(delta);}
 
 document.addEventListener('keydown',e=>{
   if(e.target.matches('button,[role="button"]')&&(e.key==='Enter'||e.key===' '))return;
@@ -1195,5 +1196,13 @@ document.querySelectorAll('#settings .settings-menu button').forEach((button,i)=
 updateBookContext();
 applyReaderPrefs();
 setReaderControls(false);
+if(document.fonts) {
+  const repaginateAfterFontLoad=()=>{
+    pendingRepaginate=true;
+    if(document.getElementById('reader').classList.contains('active')){paginateReading(true);renderReader();}
+  };
+  document.fonts.ready.then(repaginateAfterFontLoad);
+  document.fonts.addEventListener('loadingdone',repaginateAfterFontLoad);
+}
 
 </script></body></html>
