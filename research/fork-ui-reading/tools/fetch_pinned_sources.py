@@ -1,27 +1,73 @@
 #!/usr/bin/env python3
-"""Fetch pinned upstream files to research/downloaded_sources only.
+"""Fetch the pinned fork files listed in SOURCE_MANIFEST.json.
 
-Requires Internet access; does not modify runtime firmware or repo sources.
+Files go to research/fork-ui-reading/downloaded_sources/ (git-ignored).
+Requires Internet access. Does not modify firmware or tracked repo sources.
+
+Exit code: 0 when every file was fetched and every known hash matched,
+1 when any file failed. Files without a recorded blob_sha are fetched but
+reported as UNVERIFIED.
 """
-from pathlib import Path
-from urllib.parse import quote
-from urllib.request import urlopen
+from __future__ import annotations
+
 import hashlib
 import json
+from pathlib import Path, PurePosixPath
+import sys
+from urllib.error import URLError
+from urllib.parse import quote
+from urllib.request import urlopen
 
-root = Path(__file__).resolve().parents[1]
-manifest = json.loads((root / "SOURCE_MANIFEST.json").read_text("utf-8"))
-for item in manifest["sources"]:
+ROOT = Path(__file__).resolve().parents[1]
+DEST = ROOT / "downloaded_sources"
+
+
+def git_blob_sha(content: bytes) -> str:
+    return hashlib.sha1(b"blob " + str(len(content)).encode() + b"\x00" + content).hexdigest()
+
+
+def safe_relative(*parts: str) -> PurePosixPath:
+    """Reject absolute paths and '..' so a manifest entry cannot escape DEST."""
+    rel = PurePosixPath(*parts)
+    if rel.is_absolute() or ".." in rel.parts or not rel.parts:
+        raise ValueError(f"unsafe path: {rel}")
+    return rel
+
+
+def fetch(item: dict) -> str:
     owner, repo = item["repo"].split("/")
-    rel = item["path"]
-    url = "https://raw.githubusercontent.com/" + quote(owner) + "/" + quote(repo) + "/" + item["commit"] + "/" + quote(rel, safe="/")
+    rel = safe_relative(owner, repo, item["path"])
+    url = ("https://raw.githubusercontent.com/" + quote(owner) + "/" + quote(repo) + "/"
+           + item["commit"] + "/" + quote(item["path"], safe="/"))
     with urlopen(url, timeout=20) as response:
         content = response.read()
-    if item["blob_sha"]:
-        digest = hashlib.sha1(b"blob " + str(len(content)).encode() + b"\x00" + content).hexdigest()
-        if digest != item["blob_sha"]:
-            raise RuntimeError("Unexpected blob SHA: " + item["repo"] + "/" + rel)
-    path = root / "downloaded_sources" / owner / repo / rel
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(content)
-    print(item["repo"], rel, len(content))
+    expected = item.get("blob_sha")
+    if expected and git_blob_sha(content) != expected:
+        raise RuntimeError("blob SHA mismatch")
+    target = DEST / rel
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(content)
+    return "ok" if expected else "UNVERIFIED"
+
+
+def main() -> int:
+    manifest = json.loads((ROOT / "SOURCE_MANIFEST.json").read_text("utf-8"))
+    failures = 0
+    unverified = 0
+    for item in manifest["sources"]:
+        label = item["repo"] + "/" + item["path"]
+        try:
+            status = fetch(item)
+        except (URLError, OSError, RuntimeError, ValueError, KeyError) as err:
+            failures += 1
+            print(f"FAIL        {label}: {err}")
+            continue
+        unverified += status == "UNVERIFIED"
+        print(f"{status:<11} {label}")
+    total = len(manifest["sources"])
+    print(f"\n{total - failures}/{total} fetched, {unverified} without a recorded hash, {failures} failed.")
+    return 1 if failures else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

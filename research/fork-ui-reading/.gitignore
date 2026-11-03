@@ -1,0 +1,7 @@
+# Output of tools/fetch_pinned_sources.py. Third-party code: never commit;
+# some pinned repos have no archived license in licenses/.
+downloaded_sources/
+
+# Output of tools/make_reading_samples.py when run from this folder.
+samples/
+*.epub

@@ -75,7 +75,7 @@
       "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/lib/Epub/Epub/TypographyProfile.h",
       "kind": "reference",
       "local": null,
-      "blob_sha": null
+      "blob_sha": "50875749fc69a46bc8e3a3976a80ff1aa03e1f99"
     },
     {
       "repo": "jpirnay/witchhunt-reader",
@@ -84,7 +84,7 @@
       "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/lib/Epub/Epub/TypographyProfile.cpp",
       "kind": "reference",
       "local": null,
-      "blob_sha": null
+      "blob_sha": "7940d17f86a0f17454d4f92302a765525215c728"
     },
     {
       "repo": "jpirnay/witchhunt-reader",
@@ -102,7 +102,7 @@
       "url": "https://github.com/jpirnay/witchhunt-reader/blob/f6a1019385d6f5be96ee3eebba146b76d00b8272/docs/background-rendering.md",
       "kind": "reference",
       "local": null,
-      "blob_sha": null
+      "blob_sha": "32186704784f599e7ade080685cfed15e81ff223"
     },
     {
       "repo": "uxjulia/CrossInk",
@@ -138,7 +138,7 @@
       "url": "https://github.com/uxjulia/CrossInk/blob/9914146eeae7b46b300f475a16c32426fc02ec1f/docs/reader-features.md",
       "kind": "reference",
       "local": null,
-      "blob_sha": null
+      "blob_sha": "c391fafc00bb44cac957aee9131388b66c68dad7"
     },
     {
       "repo": "Belphemur/Xerif-eReader",
@@ -165,7 +165,7 @@
       "url": "https://github.com/bigbag/papyrix-reader/blob/93425d868c79156b77fcb97a167b490ea3663e87/lib/RenderTypes/src/ParsedText.cpp",
       "kind": "reference",
       "local": null,
-      "blob_sha": null
+      "blob_sha": "418e1147fafb0ad135182e89e7bab96eb603588b"
     },
     {
       "repo": "bigbag/papyrix-reader",
@@ -174,7 +174,7 @@
       "url": "https://github.com/bigbag/papyrix-reader/blob/93425d868c79156b77fcb97a167b490ea3663e87/test/unit/epub/ParsedTextTest.cpp",
       "kind": "reference",
       "local": null,
-      "blob_sha": null
+      "blob_sha": "9a6d3e9cbdad89482cb280539d43cfa1c623aca3"
     },
     {
       "repo": "bigbag/papyrix-reader",
@@ -183,7 +183,7 @@
       "url": "https://github.com/bigbag/papyrix-reader/blob/93425d868c79156b77fcb97a167b490ea3663e87/docs/fonts.md",
       "kind": "reference",
       "local": null,
-      "blob_sha": null
+      "blob_sha": "f62b10e422841d8ea922f6e195666a14896837e3"
     },
     {
       "repo": "obijuankenobiii/inx",
@@ -192,7 +192,7 @@
       "url": "https://github.com/obijuankenobiii/inx/blob/8c632186da53e3d1b72ae7d5c72d1cf4855eb03f/src/activity/reader/Epub/MenuDrawer.h",
       "kind": "reference",
       "local": null,
-      "blob_sha": null
+      "blob_sha": "dfb34109d858f7d7d67dd5572f2e939b8b9d85bf"
     },
     {
       "repo": "obijuankenobiii/inx",
@@ -201,7 +201,7 @@
       "url": "https://github.com/obijuankenobiii/inx/blob/8c632186da53e3d1b72ae7d5c72d1cf4855eb03f/src/activity/reader/Epub/PresetPickerUi.h",
       "kind": "reference",
       "local": null,
-      "blob_sha": null
+      "blob_sha": "21da8502a613b004e8d4ca8c0b23f90ac29f01b8"
     }
   ]
 }
