@@ -100,3 +100,25 @@ no page cuts off a line at the bottom.
 
 - `AGENTS.md` / `CLAUDE.md`: host-only Python and docs, so no firmware handoff required. No commits or pushes
   without explicit approval; no PR opened.
+
+## 7. Pass 2: reader core (2026-11-03)
+
+Scope: `src/activities/reader/` (`EpubReaderActivity.cpp`, `ReaderSession`, `ChapterBuildGate`, `ChapterPosition`,
+`ReaderToolbarUi.cpp`, `ReaderUtils.h`) and `lib/Epub/Epub/parsers/ChapterHtmlSlimParser.cpp`. About 7,500 lines.
+
+Result: no reachable bugs found. Allocations are OOM-checked, there are no raw `malloc`/`new[]` outside RAII, and
+input combos (for example Power+Down) are consumed so they cannot also fire single-button actions.
+
+Two copies into fixed buffers in the parser were safe only because of checks in other functions. Both now bound
+themselves. Branch `fix/parser-bounded-copies` (commit `09e9b25`), based on `develop`:
+
+| Location | Why it was safe | Change |
+| --- | --- | --- |
+| `startElement`, `<a href>` into `currentFootnote.href` (256 bytes) with `strcpy` | `ParsedText::addLinkTarget()` returns 0 for hrefs of 256+ bytes, which skips the copy | `strncpy` plus explicit terminator |
+| `cancelDropCapToWord()`, `memcpy` into `partWordBuffer` | Every caller starts drop-cap capture at `partWordBufferIndex == 0` | Copy clamped to remaining room |
+
+Checks: clang-format 21 clean. Not compiled yet: this session cannot start GitHub Actions. Start
+"Compile Release Candidate" on `fix/parser-bounded-copies` from the Actions tab to build all 8 boards.
+
+Device test: open an EPUB with footnote links and one with a CSS drop cap (`::first-letter` or a floated first
+span); footnotes still open and the drop cap still draws.
