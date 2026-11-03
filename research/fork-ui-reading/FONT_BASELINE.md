@@ -9,14 +9,15 @@ Prioritize normal text clarity and comfort, paragraph spacing, faithful italic/b
 Run the dependency-free generator:
     python3 research/fork-ui-reading/tools/make_reading_samples.py --output ./samples
 
-Two original, font-neutral EPUBs will be produced:
-- reading-prose.epub: three chapters of plain sustained prose for line wrapping, reading density, page turns and chapter boundaries.
-- reading-stress.epub: easily confused letters (I/l/1, O/0, rn/m), accent marks, quotes, dashes, italics/bold, long words, lists, a table and a local footnote-style link.
+Three original, font-neutral EPUBs will be produced:
+- reading-prose.epub: three chapters of plain sustained prose for line wrapping, reading density, page turns and chapter boundaries. Each paragraph starts with a `[chapter.paragraph]` marker, so a lost or repeated paragraph across a page turn is easy to spot.
+- reading-stress.epub: easily confused letters (I/l/1, O/0, rn/m), accent marks, quotes, dashes, italics/bold, long words, lists, a table, `epub:type="noteref"` footnotes in a separate notes file, and a same-file cross-reference.
+- reading-legacy-ncx.epub: the prose chapters as EPUB 2.0.1 with `toc.ncx` only, to check the older table-of-contents path.
 
 Run host checks:
     python3 research/fork-ui-reading/tools/test_reading_samples.py
 
-The tests check ZIP mimetype placement/compression, XML syntax, manifest/spine references, no bundled fonts/images and deterministic output. They DO NOT prove the X4 Pro renders these books correctly.
+The tests check ZIP mimetype placement/compression (no extra field, no data descriptor), XML syntax, manifest/spine references, TOC type, footnote targets, unique paragraph markers, no bundled fonts/images and deterministic output. All three books also pass EPUBCheck 5 with no errors or warnings. They DO NOT prove the X4 Pro renders these books correctly.
 
 ## Use what CrossPoint already supports
 - Direct TTF/OTF/TTC loading on boards with external RAM, including X4 Pro. Copy permitted fonts into /fonts/ or /.fonts/ on the microSD. Use separate variants in a family folder; don't mix cpfont and TTF files (cpfont takes precedence).

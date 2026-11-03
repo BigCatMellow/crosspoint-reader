@@ -6,10 +6,12 @@ The archive preserves:
 - [FORK_REVIEW.md](FORK_REVIEW.md) — ranked, sourced findings and integration risks.
 - [DESIGN_BRIEF.md](DESIGN_BRIEF.md) — book-first UI and reading-quality guidelines.
 - [QUALITY_TEST_PLAN.md](QUALITY_TEST_PLAN.md) — hardware validation criteria, **not executed**.
-- [SOURCE_MANIFEST.json](SOURCE_MANIFEST.json) — 22 exact, commit-pinned fork source links.
+- [SOURCE_MANIFEST.json](SOURCE_MANIFEST.json) — 22 exact, commit-pinned fork source links, each with a git blob SHA.
 - [reference_code/](reference_code/) — five unmodified MIT-licensed C++ headers isolated from the firmware build.
-- [licenses/](licenses/) — upstream MIT copyright and license notices.
-- [tools/fetch_pinned_sources.py](tools/fetch_pinned_sources.py) — optional fetcher for the other pinned references.
+- [licenses/](licenses/) — MIT license notices for all five referenced forks (CrossInk, Xerif, witchhunt, Papyrix, Inx).
+- [tools/fetch_pinned_sources.py](tools/fetch_pinned_sources.py) — optional fetcher for the other pinned references. Writes to the git-ignored `downloaded_sources/` and checks every file against its blob SHA.
+- [tools/make_reading_samples.py](tools/make_reading_samples.py) — generates the comparison EPUBs described in [FONT_BASELINE.md](FONT_BASELINE.md).
+- [REVIEW_NOTES.md](REVIEW_NOTES.md) — second-opinion review log: what was checked, changed, and left open.
 
 **Goal:** strong typography, faithful EPUB rendering, comfortable paragraph rhythm, fast page turning and quiet menus. No games, notes apps, stats dashboards, weather, clocks, new sync engines, or decorative theme expansion.
 
