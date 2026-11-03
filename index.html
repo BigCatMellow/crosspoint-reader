@@ -1,0 +1,1199 @@
+<!doctype html><html><head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Xteink X4 Pro — True Size UI Preview</title><style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#d5d2c8;font-family:"Inter", Arial, sans-serif;color:#111}.device{width:426px;background:#292929;border-radius:28px;padding:18px}.screen{width:390px;height:610px;background:#f6f4ec;border:2px solid #111;position:relative;overflow:hidden}.page{display:none;position:absolute;inset:0;padding:18px 18px 62px;background:#f6f4ec}.page.active{display:block}.top{display:flex;justify-content:space-between;border-bottom:1px solid #999;padding-bottom:9px;margin-bottom:18px;font-size:14px;font-weight:700}h1{font:700 27px "Inter", Arial, sans-serif;margin:0 0 14px}.k{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}.hero{border:2px solid #111;padding:16px;margin-bottom:16px}.title{font:700 22px "Inter", Arial, sans-serif}.meta{font-size:13px;color:#444;margin-top:3px}.progress{height:11px;border:1px solid #111;margin-top:14px}.progress b{display:block;width:38%;height:100%;background:#111}.stack{display:grid;gap:10px}button,.row{min-height:48px;border:2px solid #111;background:transparent;padding:10px 12px;font-weight:700;font-size:16px;text-align:left;cursor:pointer}.row{border-width:1px}.row:hover,button:hover{background:#111;color:#f6f4ec}.secondary{border-width:1px}.footer{position:absolute;left:0;right:0;bottom:0;height:52px;border-top:1px solid #999;display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;padding:8px 12px}.footer button{min-height:34px;padding:6px;font-size:13px;text-align:center}.footer span{font-size:13px;font-weight:700}.reader{padding:28px 24px 55px;font:18px/1.58 Georgia,serif}.reader .menu{position:absolute;left:16px;bottom:11px;width:auto;min-height:34px;padding:6px 12px;font-size:13px}.reader .pct{position:absolute;right:18px;bottom:17px;font:13px Arial,sans-serif}.preview{border:1px solid #111;padding:20px;text-align:center;font:24px "Inter", Arial, sans-serif;margin-bottom:16px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.center{text-align:center}@media(max-width:460px){body{background:#292929}.device{transform:scale(.9)}}
+.reader{padding:24px 24px 62px;font:21px/1.58 "Inter", Arial, sans-serif}
+.reader .k{font:700 12px Arial,sans-serif;margin-bottom:5px}
+#readerText{font:21px/1.58 "Inter", Arial, sans-serif}
+#readerText p{margin:0}
+.reader-footer{position:absolute;left:0;right:0;bottom:0;height:52px;border-top:1px solid #999;display:grid;grid-template-columns:54px 1fr 54px;align-items:center;padding:7px 12px;background:#f6f4ec;font:700 13px Arial,sans-serif;text-align:center}
+.reader-footer button{min-height:34px;padding:4px;text-align:center;font-size:20px}
+.reader-footer button:disabled{opacity:.25;background:transparent;color:#111;cursor:default}
+
+.hero.action{cursor:pointer}
+.hero.action:hover,.hero.action:focus{background:#111;color:#f6f4ec;outline:none}
+.hero.action:hover .meta,.hero.action:focus .meta{color:#f6f4ec}
+.settings-menu{display:grid;grid-template-rows:repeat(4,1fr);gap:10px;height:356px}
+.settings-menu button{min-height:0;display:flex;flex-direction:column;justify-content:center;padding:14px 16px}
+.settings-menu small{display:block;font-weight:400;font-size:12px;margin-top:4px;opacity:.75}
+.reader{padding:0 24px 54px}
+.reader-nav{height:46px;margin:0 -24px 14px;padding:0 14px;border-bottom:1px solid #999;display:grid;grid-template-columns:82px 1fr 82px;align-items:center;font:700 12px "Inter", Arial, sans-serif}
+.reader-nav button{min-height:32px;padding:4px 7px;font-size:12px;border:1px solid #111}
+.reader-nav .chapter{text-align:center;white-space:nowrap}
+#readerText{height:496px;overflow:hidden;font:21px/1.58 "Inter", Arial, sans-serif}
+#readerText p{margin:0}
+
+:root{--nav-card-h:82px}
+.stack.primary-cards button,
+.library-cards .row,
+.book-cards button,
+#settings .settings-menu button{
+  min-height:var(--nav-card-h);
+  height:var(--nav-card-h);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.stack.primary-cards button{align-items:flex-start}
+.library-cards .row{justify-content:center}
+
+
+.library-cards .row{
+  padding:14px 16px;
+}
+
+
+#home .primary-cards button{
+  font-size:22px;
+  font-family:"Inter", Arial, sans-serif;
+  font-weight:700;
+}
+
+
+
+#home{padding-bottom:78px}
+
+#home .home-hero{
+  height:360px;
+  margin-bottom:0;
+  padding:22px 20px 20px;
+  display:flex;
+  flex-direction:column;
+  cursor:pointer;
+}
+
+#home .book-title{
+  max-width:290px;
+  font:700 24px/1.08 "Inter", Arial, sans-serif;
+  letter-spacing:-0.025em;
+  margin-bottom:6px;
+}
+
+#home .book-author{
+  font:400 13px/1.3 "Inter", Arial, sans-serif;
+  color:#444;
+}
+
+#home .home-current-place{
+  margin-top:34px;
+}
+
+#home .home-current-place .label{
+  font:700 11px/1.2 "Inter", Arial, sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+
+#home .chapter-title{
+  font:700 18px/1.25 "Inter", Arial, sans-serif;
+}
+
+#home .chapter-number{
+  font:400 12px/1.3 "Inter", Arial, sans-serif;
+  color:#555;
+  margin-top:3px;
+}
+
+#home .home-progress{
+  margin-top:auto;
+  padding-top:22px;
+  border-top:1px solid #aaa;
+}
+
+#home .progress-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:8px;
+  font:600 12px/1.2 "Inter", Arial, sans-serif;
+}
+
+#home .home-progress .progress{
+  margin:0;
+}
+
+#home .resume-row{
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font:700 13px/1.2 "Inter", Arial, sans-serif;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+#home .resume-arrow{
+  font-size:21px;
+  line-height:1;
+}
+
+.home-utility{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:64px;
+  border-top:1px solid #999;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  background:#f6f4ec;
+}
+
+.home-utility button{
+  min-height:64px;
+  height:64px;
+  border:0;
+  border-right:1px solid #999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-align:center;
+  font:700 16px "Inter", Arial, sans-serif;
+  background:transparent;
+}
+
+.home-utility button:last-child{border-right:0}
+
+.glyph{
+  display:inline-flex;
+  width:22px;
+  height:22px;
+  align-items:center;
+  justify-content:center;
+}
+
+.glyph svg{
+  width:22px;
+  height:22px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+
+.reader-nav .reader-settings{
+  justify-self:end;
+}
+
+
+.quick-preview{
+  border:1px solid #111;
+  min-height:94px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 18px;
+  text-align:center;
+  font:21px/1.58 "Inter", Arial, sans-serif;
+  margin-bottom:20px;
+}
+.quick-setting{margin-bottom:20px}
+.quick-label{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+  font:700 12px/1.2 "Inter", Arial, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.three button{min-height:54px;text-align:center;font-size:13px;padding:6px 4px}
+.quick-setting button.active{
+  background:#111;
+  color:#f6f4ec;
+}
+.quick-back{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:18px;
+}
+.quick-back button{
+  text-align:center;
+  min-height:48px;
+}
+
+
+.setting-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+}
+.setting-icon svg{
+  width:38px;
+  height:38px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+
+.two button{
+  min-height:54px;
+  font-size:32px;
+  line-height:1;
+  padding:4px 6px;
+}
+
+.top .crumb-btn{
+  border:0;
+  background:transparent;
+  padding:0;
+  margin:0;
+  min-height:auto;
+  font:700 14px "Inter", Arial, sans-serif;
+  text-align:left;
+}
+.top .crumb-btn:hover,
+.top .crumb-btn:focus{
+  background:transparent;
+  color:#111;
+  text-decoration:underline;
+}
+.footer button:disabled{
+  opacity:.25;
+  background:transparent;
+  color:#111;
+  cursor:default;
+}
+.reader-nav .back-arrow{
+  width:32px;
+  min-width:32px;
+  padding:4px 0;
+  text-align:center;
+}
+
+.top,
+.reader-nav{
+  height:46px;
+  min-height:46px;
+  margin:0 0 18px 0;
+  padding:0 14px;
+  border-bottom:1px solid #999;
+  display:grid;
+  align-items:center;
+  font:700 12px "Inter", Arial, sans-serif;
+  background:#f6f4ec;
+}
+.top{
+  grid-template-columns:minmax(0,1fr) auto;
+}
+.reader-nav{
+  margin:0 -24px 14px;
+  grid-template-columns:82px 1fr 82px;
+}
+.top .crumb-btn{
+  min-height:32px;
+  padding:4px 10px;
+  border:1px solid #111;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  justify-self:start;
+  border-radius:0;
+  font:700 14px "Inter", Arial, sans-serif;
+  text-align:left;
+  background:transparent;
+}
+.top .crumb-btn:hover,
+.top .crumb-btn:focus{
+  background:#111;
+  color:#f6f4ec;
+  text-decoration:none;
+}
+.top > span:first-child{
+  font:700 14px "Inter", Arial, sans-serif;
+}
+.top > span:last-child{
+  font:700 14px "Inter", Arial, sans-serif;
+}
+
+.top .close-btn{
+  min-height:32px;
+  width:32px;
+  padding:0;
+  border:1px solid #111;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  justify-self:end;
+  border-radius:0;
+  font:700 16px "Inter", Arial, sans-serif;
+  line-height:1;
+  background:transparent;
+}
+.top .close-btn:hover,
+.top .close-btn:focus{
+  background:#111;
+  color:#f6f4ec;
+}
+
+#readerQuickSettings{
+  padding:0 24px 64px;
+}
+#readerQuickSettings .reader-nav{
+  height:46px;
+  min-height:46px;
+  margin:0 -24px 14px;
+  padding:0 14px;
+  border-bottom:1px solid #999;
+  display:grid;
+  grid-template-columns:82px 1fr 82px;
+  align-items:center;
+  font:700 12px "Inter", Arial, sans-serif;
+  background:#f6f4ec;
+}
+#readerQuickSettings .reader-nav button{
+  min-height:32px;
+  padding:4px 7px;
+  font-size:12px;
+  border:1px solid #111;
+}
+#readerQuickSettings .reader-nav .chapter{
+  text-align:center;
+  white-space:nowrap;
+}
+
+.quick-preview{
+  width:100%;
+  box-sizing:border-box;
+}
+.quick-preview-text{
+  width:100%;
+}
+
+#book .current-place-card{
+  padding:18px;
+}
+#book .current-place-card .label{
+  font:700 11px/1.2 "Inter", Arial, sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+#book .current-place-card .chapter-title{
+  font:700 18px/1.25 "Inter", Arial, sans-serif;
+}
+#book .current-place-card .chapter-number{
+  font:400 12px/1.3 "Inter", Arial, sans-serif;
+  color:#555;
+  margin-top:3px;
+}
+#book .book-actions{
+  display:grid;
+  gap:10px;
+}
+#book .chapters-card{
+  min-height:var(--nav-card-h);
+  height:var(--nav-card-h);
+  border:2px solid #111;
+  background:transparent;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  cursor:pointer;
+  font:700 18px/1.2 "Inter", Arial, sans-serif;
+}
+#book .chapters-card:hover,
+#book .chapters-card:focus{
+  background:#111;
+  color:#f6f4ec;
+  outline:none;
+}
+#book .chapters-meta{
+  display:block;
+  font:400 12px/1.25 "Inter", Arial, sans-serif;
+  opacity:.8;
+  margin-top:4px;
+}
+#book .chapters-arrow{
+  font-size:24px;
+  line-height:1;
+  margin-left:16px;
+}
+
+#book .book-head{
+  margin-bottom:14px;
+}
+#book .book-head h1{
+  margin-bottom:6px;
+}
+#book .book-author{
+  display:block;
+  text-align:right;
+  font:400 13px/1.25 "Inter", Arial, sans-serif;
+  color:#444;
+  margin:0 2px 0 0;
+}
+#book .current-place-card{
+  margin-top:0;
+}
+
+/* X4 Pro stage-one layout: monochrome, fixed-size e-ink chrome. */
+.device{width:516px;border-radius:28px;padding:18px}
+.screen{width:480px;height:800px}
+.page{padding:18px 18px 76px}
+#home .home-hero{height:520px}
+#home .book-title{max-width:370px;font-size:28px}
+#home .home-current-place{margin-top:64px}
+#home .home-progress{padding-top:24px}
+#home .home-utility{height:76px}
+#home .home-utility button{height:76px}
+#book .book-head h1{font-size:27px;line-height:1.18;overflow-wrap:anywhere}
+.library-cards .row{width:100%;height:112px;min-height:112px;cursor:pointer;border:1px solid #111}
+.library-cards .row .title{font-size:20px;line-height:1.2}
+.library-cards .row .meta{font-size:13px}
+#chapters .stack .row{width:100%;min-height:92px;cursor:pointer;font:700 17px/1.25 'Inter',Arial,sans-serif}
+#chapters .stack .row .title{font-size:17px}
+#chapters .top>span:first-child{cursor:pointer}
+.page.reader{padding:0 24px 0}
+.reader-nav{height:52px;min-height:52px;margin:0 -24px 0;grid-template-columns:74px minmax(0,1fr) 74px}
+.reader-nav .chapter{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+#readerText{height:calc(100% - 114px);padding-top:24px;overflow:hidden;white-space:pre-line;cursor:pointer;font-family:Georgia,serif;box-sizing:border-box;line-height:1.58}
+.reader-footer{height:62px}
+.reader-footer button{min-height:44px;width:54px;font-size:26px}
+#readerQuickSettings .reader-nav{height:52px;min-height:52px}
+/* Match the preview box to its tallest 30px-text state, so font changes never move the controls below. */
+#readerQuickSettings .quick-preview,#reading .quick-preview{margin-top:20px;height:144px;min-height:144px}
+#readerQuickSettings .quick-setting,#reading .quick-setting{margin-bottom:25px}
+#readerQuickSettings .three button,#reading .three button{min-height:68px}
+#readerQuickSettings .two button,#reading .two button{min-height:62px}
+.quick-preview-text{font-family:Georgia,serif}
+.settings-menu button:disabled{opacity:.4;cursor:not-allowed}
+.settings-menu button:disabled:hover{background:transparent;color:#111}
+@media(max-width:540px){body{background:#292929}.device{transform:scale(min(.92, calc((100vw - 12px) / 516)));transform-origin:top center;margin-top:4px}}
+
+/* Visual refinement v2: e-ink-first hierarchy, 1px rules, calm reader mode. */
+:root { --paper:#f6f4ec; --ink:#111; --rule:#aaa9a2; --subtle:#45443f; --nav-gap:18px; }
+.page{background:var(--paper)}
+/* The home card fills the remaining height down to a consistent gap above utility tabs. */
+#home.page.active{display:flex;flex-direction:column;padding-bottom:76px}
+#home .top{flex:0 0 46px;margin-bottom:17px}
+#home > .k{flex:0 0 auto;margin-bottom:9px}
+#home .home-hero{height:auto;min-height:0;flex:1 1 auto;margin:0 0 var(--nav-gap);padding:23px 21px 20px;border:1px solid var(--ink)}
+#home .home-current-place{margin-top:clamp(34px,8vh,62px)}
+#home .home-progress{padding-top:19px}
+#home .home-progress .progress{height:8px;border:1px solid var(--ink)}
+#home .home-utility{border-top:1px solid var(--rule)}
+#home .home-utility button{border-right:1px solid var(--rule)}
+#home .home-utility button:last-child{border-right:0}
+/* Avoid browser hover invert: a pressed-looking giant card is misleading on e-ink. */
+button,.row,.hero,#book .chapters-card{border-width:1px}
+.hero.action:hover,.hero.action:focus,.hero.action:hover .meta,.hero.action:focus .meta{background:transparent;color:inherit}
+#home .home-hero:hover,#home .home-hero:focus{background:var(--paper);color:var(--ink)}
+#home .home-hero:hover .book-author,#home .home-hero:focus .book-author{color:var(--subtle)}
+#book .current-place-card,#book .current-place-card:hover,#book .current-place-card:focus{background:var(--paper);color:var(--ink);border:1px solid var(--ink)}
+#book .current-place-card:hover .meta,#book .current-place-card:focus .meta{color:var(--subtle)}
+#book .current-place-card .chapter-number{color:var(--subtle)}
+#book .chapters-card{border:1px solid var(--ink)}
+#book .chapters-card:hover,#book .chapters-card:focus{background:var(--paper);color:var(--ink)}
+button:not(.active):hover,.row:hover{background:transparent;color:var(--ink)}
+button:focus-visible,.row:focus-visible,.hero.action:focus-visible,#book .chapters-card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.quick-setting button.active,.quick-setting button.active:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+/* Settings are recognisable without testing every icon. */
+#readerQuickSettings .three button,#reading .three button{min-height:76px;height:76px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:7px 3px}
+.setting-icon{height:31px;flex:0 0 auto}
+.setting-icon svg{height:29px;width:29px;stroke-width:1.8}
+.choice-name{font:700 12px/1.1 "Inter",Arial,sans-serif;letter-spacing:0;white-space:nowrap}
+/* A glyph resolves the 82% battery value versus 38% book progress. */
+.top .battery-status{display:inline-flex;gap:6px;align-items:center;justify-self:end;white-space:nowrap;font:700 13px/1.1 "Inter",Arial,sans-serif}
+.battery-status svg{width:23px;height:14px;flex:0 0 auto}
+/* Reader text area is fixed across chrome show/hide so page position never jumps. */
+#reader.page{padding:0 24px 0}
+#reader #readerText{height:calc(100% - 39px);padding-top:29px;padding-bottom:6px;cursor:pointer;font-family:Georgia,serif;overflow:hidden;box-sizing:border-box}
+#reader .reader-nav,#reader .reader-footer{display:none;position:absolute;z-index:5;left:0;right:0;background:var(--paper)}
+#reader .reader-nav{top:0;height:54px;min-height:54px;margin:0;padding:0 18px;grid-template-columns:75px 1fr 75px;border-bottom:1px solid var(--rule)}
+#reader .reader-footer{bottom:0;height:65px;border-top:1px solid var(--rule)}
+#reader.show-controls .reader-nav,#reader.show-controls .reader-footer{display:grid}
+#reader .reader-nav button{border:1px solid var(--ink);font-size:14px}
+#reader .reader-nav .chapter{font-size:12px}
+#reader.show-controls .reader-nav{box-shadow:0 8px 0 var(--paper)}
+
+/* Navigation v3: two equal bottom action targets on every screen. */
+:root{--bottom-nav-h:76px}
+#home .home-utility,
+.footer,
+#reader .reader-footer{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:var(--bottom-nav-h);
+  padding:0;
+  gap:0;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  border-top:1px solid var(--rule);
+  background:var(--paper);
+}
+#home .home-utility button,
+.footer button,
+#reader .reader-footer button{
+  width:100%;
+  height:100%;
+  min-height:0;
+  margin:0;
+  padding:0 10px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  border:0;
+  border-right:1px solid var(--rule);
+  border-radius:0;
+  background:transparent;
+  color:var(--ink);
+  font:700 16px/1.2 "Inter",Arial,sans-serif;
+  text-align:center;
+}
+#home .home-utility button:last-of-type,
+.footer button:last-of-type,
+#reader .reader-footer button:last-of-type{border-right:0}
+/* The reading screen retains its optional overlay and quiet default. */
+#reader .reader-footer{display:none;z-index:5}
+#reader.show-controls .reader-footer{display:grid}
+#reader .reader-footer button{font-size:16px}
+#reader .reader-footer button:disabled,
+.footer button:disabled{opacity:.35;background:transparent;color:var(--ink);cursor:default}
+
+
+/* Navigation v4 — consistent size families and less information chrome. */
+:root{--control-h:76px;--list-h:92px;--header-button-h:36px}
+#home .home-utility,.footer,#reader .reader-footer{height:var(--control-h)}
+/* Settings adjustments are equal-height siblings of bottom navigation. */
+#readerQuickSettings .two button,#reading .two button,
+#readerQuickSettings .three button,#reading .three button{
+  min-height:var(--control-h);height:var(--control-h);
+}
+/* The chapter's current-position hint gets its own line, not a run-on label. */
+#chapters .stack .row{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px}
+#chapters .stack .row .meta{font-size:12px;font-weight:600;color:var(--subtle)}
+/* Lists are a little taller because they carry metadata or wrap long titles. */
+.library-cards .row,#chapters .stack .row,#book .chapters-card,
+#settings .settings-menu button{
+  min-height:var(--list-h);height:var(--list-h);
+}
+#settings .settings-menu{height:auto;grid-template-rows:repeat(4,var(--list-h))}
+/* Header return controls share a consistent minimum touch size. */
+.top .crumb-btn,#readerQuickSettings .reader-nav .back-arrow,
+#reader .reader-nav .back-arrow{
+  min-height:var(--header-button-h);height:var(--header-button-h);
+}
+#readerQuickSettings .reader-nav .back-arrow,#reader .reader-nav .back-arrow{width:var(--header-button-h)}
+/* Reader body takes the space previously reserved for a page counter. */
+#reader #readerText{height:100%;padding-top:26px;padding-bottom:24px}
+/* Disabled state communicates boundaries without auxiliary page numbers. */
+.footer button:disabled,#reader .reader-footer button:disabled,
+.quick-setting button:disabled{opacity:.52;cursor:default}
+.quick-setting button:disabled:hover{background:var(--paper);color:var(--ink)}
+#book .current-place-card.unavailable{opacity:.65;cursor:default}
+/* All information has a single visible owner; no orphan counters. */
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* X4 Pro display is exactly 480 × 800 logical pixels, independent of browser size.
+   Only the outer device is scaled to fit the available browser viewport. */
+:root { --device-preview-scale: 1; }
+html, body { width: 100%; height: 100%; overflow: hidden; }
+body { width: 100vw; height: 100dvh; min-height: 0; place-items: center; }
+.preview-stage {
+  position: relative;
+  width: calc(516px * var(--device-preview-scale));
+  height: calc(836px * var(--device-preview-scale));
+  flex: none;
+}
+.preview-stage > .device {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 516px;
+  height: 836px;
+  transform: scale(var(--device-preview-scale));
+  transform-origin: top left;
+}
+.preview-stage .screen { width: 480px; height: 800px; }
+@media (max-width: 540px) {
+  .preview-stage > .device { transform: scale(var(--device-preview-scale)); margin: 0; }
+}
+/* The preview holds the exact height needed at 30px with Relaxed spacing.
+   Font changes affect the sample, never the surrounding control layout. */
+#reading .quick-preview, #readerQuickSettings .quick-preview {
+  height: 144px;
+  min-height: 144px;
+  max-height: 144px;
+  overflow: hidden;
+}
+
+/* Calibrated actual physical size: display 4.3-inch diagonal / 480x800,
+   enclosure 69x111 mm. The content viewport remains exactly 480x800. */
+body{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;min-height:0;height:100dvh;overflow:hidden;background:#d5d2c8}
+.preview-tools{position:relative;z-index:5;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px;padding:10px 12px 8px;font:600 13px/1.3 "Inter",Arial,sans-serif;color:#151515;background:#e5e4df;border-bottom:1px solid #b2b1a9}
+.preview-tools .tool-label{margin-right:6px;font-size:12px;font-weight:700;letter-spacing:.03em}
+.preview-tools button,.calibration-controls button{min-height:38px;padding:6px 11px;background:#faf9f3;border:1px solid #666;color:#111;font:700 13px "Inter",Arial,sans-serif;text-align:center;cursor:pointer}
+.preview-tools button[aria-pressed="true"]{background:#111;color:#fff;border-color:#111}
+.preview-tools button:focus-visible,.calibration-controls button:focus-visible{outline:3px solid #1f6dd0;outline-offset:2px}
+.preview-tools .preview-metadata{margin-left:7px;color:#4e4e4e;font-weight:400;font-size:12px}
+.preview-calibration{background:#f9f8f2;border-bottom:1px solid #aaa;padding:12px 16px;text-align:center;font:13px/1.45 "Inter",Arial,sans-serif;color:#111}
+.preview-calibration[hidden]{display:none}
+.preview-calibration p{margin:0 auto 9px;max-width:620px}
+.reference-wrap{overflow-x:auto;max-width:100%;padding:2px 0 8px;display:flex;justify-content:center}
+.reference-wrap .reference-card{flex:none;display:grid;place-items:center;width:var(--reference-card-width,323.53px);height:36px;border:2px solid #111;background:repeating-linear-gradient(135deg,#fff,#fff 12px,#ecebe4 12px,#ecebe4 24px);font-size:12px;font-weight:700;white-space:nowrap}
+.calibration-controls{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px}
+.calibration-controls input{width:min(220px,48vw);accent-color:#222}
+.calibration-controls button{min-height:32px;min-width:38px;padding:3px 10px}
+.calibration-note{font-size:11px;color:#555;margin-top:6px!important}
+.preview-area{display:flex;flex:1;min-height:0;min-width:0;align-items:center;justify-content:center;overflow:hidden}
+/* These computed sizes are used for the stage so transform never changes layout. */
+.preview-stage{width:var(--stage-width,516px);height:var(--stage-height,836px)}
+.preview-stage>.device{width:var(--shell-width,516px);height:var(--shell-height,836px);transform:scale(var(--device-preview-scale));transform-origin:top left}
+body.actual-size .preview-stage>.device{display:grid;place-items:center;padding:0;border-radius:29px}
+body.actual-size .preview-stage .screen{flex:none}
+/* Actual-size mode must NEVER shrink when the browser is too small. */
+body.actual-size.preview-overflow{overflow:auto;height:auto;min-height:100dvh}
+body.actual-size.preview-overflow .preview-area{flex:none;overflow:auto;padding:12px 0;min-height:var(--area-min-height,440px)}
+body.actual-size.preview-overflow .preview-stage{flex:none}
+@media(max-width:540px){body{background:#d5d2c8}}
+
+</style></head><body>
+<header class="preview-tools" aria-label="Preview controls">
+  <span class="tool-label">X4 Pro preview</span>
+  <button type="button" id="fitMode" aria-pressed="true">Fit window</button>
+  <button type="button" id="actualMode" aria-pressed="false">Actual size</button>
+  <button type="button" id="calibrateMode" aria-expanded="false" aria-controls="previewCalibration">Calibrate</button>
+  <span class="preview-metadata" id="previewMetadata">480 × 800 pixel layout</span>
+</header>
+<section id="previewCalibration" class="preview-calibration" hidden aria-label="Actual-size calibration">
+  <p>Hold a standard bank card against the screen. Adjust until this outlined bar is exactly the <strong>same width as the card</strong> (85.6 mm). Then close calibration.</p>
+  <div class="reference-wrap"><div class="reference-card" id="referenceCard">85.6 mm — bank card width</div></div>
+  <div class="calibration-controls"><button type="button" id="smallerCal" aria-label="Smaller">−</button>
+    <input id="scaleCal" aria-label="Physical size adjustment" type="range" min="0.55" max="1.7" step="0.005" value="1">
+    <button type="button" id="largerCal" aria-label="Larger">+</button>
+    <button type="button" id="resetCal">Reset</button></div>
+  <p class="calibration-note">Set browser zoom to 100% before calibrating. Your adjustment stays saved in this browser when permitted.</p>
+</section>
+<div class="preview-area"><div class="preview-stage" aria-label="Xteink X4 Pro 480 by 800 pixel display preview"><div class="device"><main class="screen">
+<section class="page active" id="home">
+<div class="top"><span>Home</span><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div>
+<div class="hero action home-hero" role="button" tabindex="0" onclick="resumeHomeBook()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();resumeHomeBook()}">
+  <div>
+    <div class="book-title">Alice’s Adventures in Wonderland</div>
+    <div class="book-author">Lewis Carroll</div>
+  </div>
+  <div class="home-current-place">
+    <div class="label">Current Place</div>
+    <div class="chapter-title">Down the Rabbit-Hole</div>
+    <div class="chapter-number">Chapter I</div>
+  </div>
+  <div class="home-progress">
+    <div class="progress-row"><span>38% read</span></div>
+    <div class="progress"><b></b></div>
+    <div class="resume-row"><span>Continue Reading</span><span class="resume-arrow">›</span></div>
+  </div>
+</div>
+<nav class="home-utility" aria-label="Primary navigation">
+  <button onclick="go('library')" aria-label="Library">
+    <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 5.5h4v13h-4z"></path><path d="M10 4.5h4.5v14H10z"></path><path d="M16 6h3.5v12H16z"></path></svg></span>
+    <span>Library</span>
+  </button>
+  <button onclick="go('settings')" aria-label="Settings">
+    <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"></circle><path d="M12 3.5v2.2M12 18.3v2.2M20.5 12h-2.2M5.7 12H3.5M18 6l-1.5 1.5M7.5 16.5 6 18M18 18l-1.5-1.5M7.5 7.5 6 6"></path></svg></span>
+    <span>Settings</span>
+  </button>
+</nav>
+</section>
+<section class="page" id="library"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="stack library-cards"><div class="row" onclick="go('book')"><div class="title">Alice’s Adventures in Wonderland</div><div class="meta">Lewis Carroll · 38%</div></div><div class="row"><div class="title">Frankenstein</div><div class="meta">Mary Shelley · Not started</div></div><div class="row"><div class="title">Pride and Prejudice</div><div class="meta">Jane Austen · Not started</div></div><div class="row"><div class="title">The Time Machine</div><div class="meta">H. G. Wells · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button disabled>‹ Previous</button><button onclick="go('library2')">Next ›</button></div></section>
+<section class="page" id="library2"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="stack library-cards"><div class="row"><div class="title">The Adventures of Sherlock Holmes</div><div class="meta">Arthur Conan Doyle · Not started</div></div><div class="row"><div class="title">The Wonderful Wizard of Oz</div><div class="meta">L. Frank Baum · Not started</div></div><div class="row"><div class="title">The Secret Garden</div><div class="meta">Frances Hodgson Burnett · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button onclick="go('library')">‹ Previous</button><button disabled>Next ›</button></div></section>
+<section class="page" id="book"><div class="top"><button class="crumb-btn" onclick="go('library')">‹ Library</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div>
+<div class="book-head">
+  <h1>Alice’s Adventures in Wonderland</h1>
+  <span class="book-author">Lewis Carroll</span>
+</div>
+<div class="hero action current-place-card" role="button" tabindex="0" onclick="go('reader')" onkeydown="if(event.key==='Enter'||event.key===' '){go('reader')}"><div class="label">Current Place</div><div class="chapter-title">Down the Rabbit-Hole</div><div class="chapter-number">Chapter I</div><div class="progress"><b></b></div><div class="meta" style="margin-top:10px">Continue Reading ›</div></div>
+<div class="book-actions">
+  <div class="chapters-card" role="button" tabindex="0" onclick="go('chapters')" onkeydown="if(event.key==='Enter'||event.key===' '){go('chapters')}">
+    <div>
+      <div>Chapters</div>
+      <span class="chapters-meta">Browse the book</span>
+    </div>
+    <span class="chapters-arrow">›</span>
+  </div>
+</div>
+</section><section class="page reader" id="reader" aria-label="Reading page">
+<div class="reader-nav" aria-label="Reader controls">
+  <button class="back-arrow" onclick="go('book')" aria-label="Back">‹</button>
+  <span class="chapter">Chapter I</span>
+  <button class="reader-settings" onclick="openReaderSettings()" aria-label="Reading Settings">Aa</button>
+</div>
+<div id="readerText" role="group" aria-label="Book text. Tap left or right to turn pages, center for controls." title="Tap center for controls, edges to turn pages"></div>
+
+<nav class="reader-footer" aria-label="Page controls"><button id="prevRead" onclick="readPage(-1)" aria-label="Previous page">‹ Previous</button><button id="nextRead" onclick="readPage(1)" aria-label="Next page">Next ›</button></nav>
+</section><section class="page" id="chapters"><div class="top"><span>Book</span><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Chapters</h1><div class="stack"><div class="row"><div class="title">I. Down the Rabbit-Hole</div></div><div class="row" onclick="go('reader')"><div class="title">II. The Pool of Tears</div><div class="meta">Current book opening</div></div><div class="row"><div class="title">III. A Caucus-Race and a Long Tale</div></div><div class="row"><div class="title">IV. The Rabbit Sends in a Little Bill</div></div></div><nav class="footer" aria-label="Chapters navigation"><button onclick="go('book')">‹ Back</button><button onclick="go('home')">Home</button></nav></section>
+
+<section class="page" id="readerQuickSettings">
+  <div class="reader-nav">
+    <button class="back-arrow" onclick="closeReaderSettings()" aria-label="Back">‹</button>
+    <span class="chapter"></span>
+    <span></span>
+  </div>
+
+  <div class="quick-preview"><div class="quick-preview-text" id="quickPreviewText">Alice was beginning to get very tired…</div></div>
+
+  <div class="quick-setting">
+    <div class="quick-label">
+      <span>Text Size</span>
+      <span id="fontValue">21</span>
+    </div>
+    <div class="two">
+      <button class="center" onclick="changeReaderFont(-1)" aria-label="Decrease text size">−</button>
+      <button class="center" onclick="changeReaderFont(1)" aria-label="Increase text size">+</button>
+    </div>
+  </div>
+
+  <div class="quick-setting">
+    <div class="quick-label"><span>Line Spacing</span></div>
+    <div class="three">
+      <button id="spaceTight" onclick="setReaderSpacing(1.38)" aria-label="Tight line spacing"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16"></path><path d="M4 12h16"></path><path d="M4 15h16"></path></svg></span><span class="choice-name">Tight</span></button>
+      <button id="spaceNormal" onclick="setReaderSpacing(1.58)" aria-label="Normal line spacing"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16"></path><path d="M4 12h16"></path><path d="M4 17.5h16"></path></svg></span><span class="choice-name">Normal</span></button>
+      <button id="spaceRoomy" onclick="setReaderSpacing(1.78)" aria-label="Roomy line spacing"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16"></path><path d="M4 12h16"></path><path d="M4 20h16"></path></svg></span><span class="choice-name">Relaxed</span></button>
+    </div>
+  </div>
+
+  <div class="quick-setting">
+    <div class="quick-label"><span>Margins</span></div>
+    <div class="three">
+      <button id="marginNarrow" onclick="setReaderMargin(0)" aria-label="Narrow margins"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"></rect><path d="M5 8h14"></path><path d="M5 12h14"></path><path d="M5 16h14"></path></svg></span><span class="choice-name">Narrow</span></button>
+      <button id="marginNormal" onclick="setReaderMargin(10)" aria-label="Normal margins"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"></rect><path d="M7 8h10"></path><path d="M7 12h10"></path><path d="M7 16h10"></path></svg></span><span class="choice-name">Normal</span></button>
+      <button id="marginWide" onclick="setReaderMargin(22)" aria-label="Wide margins"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"></rect><path d="M9.5 8h5"></path><path d="M9.5 12h5"></path><path d="M9.5 16h5"></path></svg></span><span class="choice-name">Wide</span></button>
+    </div>
+  </div>
+</section>
+
+
+<section class="page" id="settings"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Settings</h1><div class="settings-menu"><button onclick="go('reading')">Reading Settings<small>Font Size, Line Spacing, Margins</small></button><button>Screen<small>Refresh, front light, contrast</small></button><button>Device<small>Buttons, sleep, storage</small></button><button class="secondary">More<small>About, updates, advanced options</small></button></div><nav class="footer" aria-label="Settings navigation"><button onclick="go('library')">Library</button><button onclick="go('home')">Home</button></nav></section>
+<section class="page" id="reading">
+  <div class="top">
+    <button class="crumb-btn" onclick="go('settings')">‹ Settings</button>
+    <span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span>
+  </div>
+
+  <div class="quick-preview"><div class="quick-preview-text" id="fullQuickPreviewText">Alice was beginning to get very tired…</div></div>
+
+  <div class="quick-setting">
+    <div class="quick-label">
+      <span>Text Size</span>
+      <span id="fullFontValue">21</span>
+    </div>
+    <div class="two">
+      <button class="center" onclick="changeReaderFont(-1)" aria-label="Decrease text size">−</button>
+      <button class="center" onclick="changeReaderFont(1)" aria-label="Increase text size">+</button>
+    </div>
+  </div>
+
+  <div class="quick-setting">
+    <div class="quick-label"><span>Line Spacing</span></div>
+    <div class="three">
+      <button id="fullSpaceTight" onclick="setReaderSpacing(1.38)" aria-label="Tight line spacing"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16"></path><path d="M4 12h16"></path><path d="M4 15h16"></path></svg></span><span class="choice-name">Tight</span></button>
+      <button id="fullSpaceNormal" onclick="setReaderSpacing(1.58)" aria-label="Normal line spacing"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16"></path><path d="M4 12h16"></path><path d="M4 17.5h16"></path></svg></span><span class="choice-name">Normal</span></button>
+      <button id="fullSpaceRoomy" onclick="setReaderSpacing(1.78)" aria-label="Roomy line spacing"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16"></path><path d="M4 12h16"></path><path d="M4 20h16"></path></svg></span><span class="choice-name">Relaxed</span></button>
+    </div>
+  </div>
+
+  <div class="quick-setting">
+    <div class="quick-label"><span>Margins</span></div>
+    <div class="three">
+      <button id="fullMarginNarrow" onclick="setReaderMargin(0)" aria-label="Narrow margins"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"></rect><path d="M5 8h14"></path><path d="M5 12h14"></path><path d="M5 16h14"></path></svg></span><span class="choice-name">Narrow</span></button>
+      <button id="fullMarginNormal" onclick="setReaderMargin(10)" aria-label="Normal margins"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"></rect><path d="M7 8h10"></path><path d="M7 12h10"></path><path d="M7 16h10"></path></svg></span><span class="choice-name">Normal</span></button>
+      <button id="fullMarginWide" onclick="setReaderMargin(22)" aria-label="Wide margins"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"></rect><path d="M9.5 8h5"></path><path d="M9.5 12h5"></path><path d="M9.5 16h5"></path></svg></span><span class="choice-name">Wide</span></button>
+    </div>
+  </div>
+</section>
+</main></div></div></div><script>
+const BOOKS = [
+  {title:'Alice’s Adventures in Wonderland', author:'Lewis Carroll', progress:38, demo:true},
+  {title:'Frankenstein', author:'Mary Shelley', progress:0},
+  {title:'Pride and Prejudice', author:'Jane Austen', progress:0},
+  {title:'The Time Machine', author:'H. G. Wells', progress:0},
+  {title:'The Adventures of Sherlock Holmes', author:'Arthur Conan Doyle', progress:0},
+  {title:'The Wonderful Wizard of Oz', author:'L. Frank Baum', progress:0},
+  {title:'The Secret Garden', author:'Frances Hodgson Burnett', progress:0}
+];
+const CHAPTERS = [
+  'Down the Rabbit-Hole',
+  'The Pool of Tears',
+  'A Caucus-Race and a Long Tale',
+  'The Rabbit Sends in a Little Bill'
+];
+const chapterNumerals = ['I','II','III','IV'];
+const readingText = `Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, “and what is the use of a book,” thought Alice “without pictures or conversations?”
+
+So she was considering in her own mind, as well as she could, for the hot day made her feel very sleepy and stupid, whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her.
+
+There was nothing so very remarkable in that; nor did Alice think it so very much out of the way to hear the Rabbit say to itself, “Oh dear! Oh dear! I shall be late!”`;
+// This is a layout prototype, not an EPUB parser. Repeat the supplied excerpt
+// to make multiple page turns available at 480x800, without inventing book content.
+const DEMO_CHAPTER_TEXT = Array(5).fill(readingText).join('\n\n');
+let activeBook = 0;
+let activeChapter = 0;
+let returnToChapters = 'book';
+let readingPages = [];
+let currentReadPage = 0;
+let readerFontSize = 21;
+let readerLineHeight = 1.58;
+let readerMargin = 10;
+let savedPosition = 0;
+let lastReaderPage = false;
+let pendingRepaginate = false;
+let readerControlsVisible = false;
+function setReaderControls(visible) {
+  readerControlsVisible = !!visible;
+  const reader = document.getElementById('reader');
+  reader.classList.toggle('show-controls', readerControlsVisible);
+  reader.querySelector('.reader-nav').setAttribute('aria-hidden', String(!readerControlsVisible));
+  reader.querySelector('.reader-footer').setAttribute('aria-hidden', String(!readerControlsVisible));
+}
+function toggleReaderControls() { setReaderControls(!readerControlsVisible); }
+
+function text(selector, value) {
+  document.querySelectorAll(selector).forEach(node => {node.textContent = value;});
+}
+function fmtPercent(n) { return Math.max(0, Math.min(100, Math.round(n))) + '%'; }
+function aliceProgress() {
+  return Math.min(100, 38 + activeChapter * 3 + Math.floor((currentReadPage / Math.max(1,readingPages.length - 1))*3));
+}
+function currentProgress() {
+  return activeBook===0?aliceProgress():BOOKS[activeBook].progress;
+}
+function setProgress(el, amount) {
+  if(!el) return;
+  const bar=el.querySelector('.progress b');
+  if(bar) bar.style.width=fmtPercent(amount);
+}
+function updateBookContext() {
+  const book=BOOKS[activeBook];
+  text('#home .book-title', BOOKS[0].title);
+  text('#home .book-author', BOOKS[0].author);
+  text('#home .home-current-place .chapter-title',CHAPTERS[activeChapter]);
+  text('#home .home-current-place .chapter-number','Chapter '+chapterNumerals[activeChapter]);
+  text('#home .progress-row span:last-child',fmtPercent(aliceProgress())+' read');
+  setProgress(document.querySelector('#home .home-hero'), aliceProgress());
+  text('#book .book-head h1',book.title);
+  text('#book .book-head .book-author',book.author);
+  text('#book .current-place-card .chapter-title',activeBook===0?CHAPTERS[activeChapter]:'Not started');
+  text('#book .current-place-card .chapter-number',activeBook===0?'Chapter '+chapterNumerals[activeChapter]:'');
+  const placeCard=document.querySelector('#book .current-place-card');
+  const available=activeBook===0;
+  placeCard.setAttribute('aria-disabled', String(!available));
+  placeCard.tabIndex=available?0:-1;
+  placeCard.classList.toggle('unavailable', !available);
+  const callToAction=placeCard.querySelector('.meta');
+  if(callToAction) callToAction.textContent=available?'Continue Reading ›':'Not available in demo';
+  setProgress(document.querySelector('#book .current-place-card'),activeBook===0?currentProgress():0);
+  const chapterCard=document.querySelector('#book .chapters-card');
+  if(chapterCard) {
+    chapterCard.tabIndex=activeBook===0?0:-1;
+    chapterCard.setAttribute('aria-disabled',activeBook===0?'false':'true');
+    chapterCard.style.opacity=activeBook===0?'1':'.65';
+  }
+  const chapterName=document.querySelector('#reader .reader-nav .chapter');
+  if(chapterName) chapterName.textContent='Chapter '+chapterNumerals[activeChapter];
+}
+function resumeHomeBook() {
+  activeBook=0;
+  go('reader');
+}
+function showBook(index) {
+  activeBook=index;
+  updateBookContext();
+  go('book');
+}
+function openBook() {
+  if(activeBook!==0) return;
+  go('reader');
+}
+function openChapters(source) {
+  if(activeBook!==0) return;
+  returnToChapters=source||'book';
+  go('chapters');
+}
+function selectChapter(i) {
+  if(i<0||i>=CHAPTERS.length) return;
+  activeChapter=i;
+  currentReadPage=0;
+  savedPosition=0;
+  updateBookContext();
+  go('reader');
+}
+function renderLibrary() {
+  [0,1].forEach(page => {
+    const screen=document.getElementById(page===0?'library':'library2');
+    const list=screen.querySelector('.library-cards');
+    list.replaceChildren();
+    const start=page*4;
+    BOOKS.slice(start,start+4).forEach((book,j)=>{
+      const row=document.createElement('button');
+      row.className='row library-entry';
+      row.type='button';
+      const title=document.createElement('span');title.className='title';title.textContent=book.title;
+      const subtitle=document.createElement('span');subtitle.className='meta';
+      subtitle.textContent=book.author+' · '+(book.progress?fmtPercent(book.progress):'Not started');
+      row.append(title,subtitle);
+      row.addEventListener('click',()=>showBook(start+j));
+      list.appendChild(row);
+    });
+  });
+}
+function renderChapters() {
+  const stack=document.querySelector('#chapters .stack');
+  stack.replaceChildren();
+  CHAPTERS.forEach((name,i)=>{
+    const row=document.createElement('button');row.type='button';row.className='row';
+    const title=document.createElement('span');title.className='title';title.textContent=chapterNumerals[i]+'. '+name;
+    row.appendChild(title);
+    if(i===activeChapter) {
+      const extra=document.createElement('span');extra.className='meta';extra.textContent='Current chapter';row.appendChild(extra);
+    }
+    row.addEventListener('click',()=>selectChapter(i));
+    stack.appendChild(row);
+  });
+  const back=document.querySelector('#chapters .footer button:first-child');
+  back.onclick=()=>go(returnToChapters);
+  const header=document.querySelector('#chapters .top span:first-child');
+  header.textContent='Book';
+}
+function updateSettingsMirror(config) {
+  const preview=document.getElementById(config.previewId);
+  if(preview){
+    preview.style.fontSize=readerFontSize+'px';
+    preview.style.lineHeight=String(readerLineHeight);
+    preview.style.paddingLeft=readerMargin+'px';
+    preview.style.paddingRight=readerMargin+'px';
+  }
+  const fontValue=document.getElementById(config.fontValueId);
+  if(fontValue) fontValue.textContent=readerFontSize+' px';
+  [...config.spaceIds,...config.marginIds].forEach(id=>{
+    const button=document.getElementById(id);
+    if(button){button.classList.remove('active');button.setAttribute('aria-pressed','false');}
+  });
+  const si=readerLineHeight<=1.4?0:readerLineHeight>=1.7?2:1;
+  const mi=readerMargin<=2?0:readerMargin>=20?2:1;
+  for(const id of [config.spaceIds[si],config.marginIds[mi]]) {
+    const button=document.getElementById(id);
+    if(button){button.classList.add('active');button.setAttribute('aria-pressed','true');}
+  }
+  // At a font-size limit, make the unavailable direction visibly non-actionable.
+  document.querySelectorAll('button[onclick="changeReaderFont(-1)"]').forEach(button=>{button.disabled=readerFontSize<=15;});
+  document.querySelectorAll('button[onclick="changeReaderFont(1)"]').forEach(button=>{button.disabled=readerFontSize>=30;});
+}
+function applyReaderPrefs() {
+  const target=document.getElementById('readerText');
+  target.style.fontSize=readerFontSize+'px';
+  target.style.lineHeight=String(readerLineHeight);
+  target.style.paddingLeft=readerMargin+'px';
+  target.style.paddingRight=readerMargin+'px';
+  updateSettingsMirror({previewId:'quickPreviewText',fontValueId:'fontValue',spaceIds:['spaceTight','spaceNormal','spaceRoomy'],marginIds:['marginNarrow','marginNormal','marginWide']});
+  updateSettingsMirror({previewId:'fullQuickPreviewText',fontValueId:'fullFontValue',spaceIds:['fullSpaceTight','fullSpaceNormal','fullSpaceRoomy'],marginIds:['fullMarginNarrow','fullMarginNormal','fullMarginWide']});
+  pendingRepaginate=true;
+}
+function pageSource() {
+  return DEMO_CHAPTER_TEXT;
+}
+function pageText(tokens,start,end) {
+  return tokens.slice(start,end).join(' ').replace(/ *\n\n */g,'\n\n');
+}
+function paginateReading(preservePosition=true) {
+  const target=document.getElementById('readerText');
+  const previousOffset=preservePosition&&readingPages.length?readingPages[currentReadPage]?.start??savedPosition:0;
+  applyReaderPrefs();
+  const tokens=pageSource().match(/\n\n|\S+/g)||[];
+  const cs=getComputedStyle(target);
+  const width=target.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);
+  const height=target.clientHeight;
+  if(width<10||height<10) return;
+  const measure=document.createElement('div');
+  const contentHeight=height-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+  Object.assign(measure.style,{position:'absolute',left:'-10000px',top:'0',visibility:'hidden',width:width+'px',fontFamily:cs.fontFamily,fontSize:cs.fontSize,lineHeight:cs.lineHeight,fontWeight:cs.fontWeight,whiteSpace:'pre-line',overflow:'visible',padding:'0',margin:'0'});
+  document.body.appendChild(measure);
+  readingPages=[];
+  let start=0;
+  while(start<tokens.length) {
+    let lo=start+1,hi=tokens.length+1;
+    while(lo+1<hi){
+      const mid=Math.floor((lo+hi)/2);
+      measure.textContent=pageText(tokens,start,mid);
+      if(measure.scrollHeight<=contentHeight-28)lo=mid;else hi=mid;
+    }
+    const end=Math.max(start+1,lo);
+    readingPages.push({start,end,text:pageText(tokens,start,end)});
+    start=end;
+  }
+  measure.remove();
+  const index=readingPages.findIndex(p=>p.start<=previousOffset&&p.end>previousOffset);
+  currentReadPage=preservePosition?Math.max(0,index):0;
+  savedPosition=readingPages[currentReadPage]?.start??0;
+  pendingRepaginate=false;
+}
+function renderReader() {
+  const current=readingPages[currentReadPage];
+  document.getElementById('readerText').textContent=current?.text||'';
+  document.getElementById('prevRead').disabled=currentReadPage===0;
+  document.getElementById('nextRead').disabled=currentReadPage>=readingPages.length-1;
+  document.getElementById('readerText').setAttribute('aria-label','Reading text. Tap center to show controls or either side to turn pages.');
+  updateBookContext();
+}
+function readPage(delta) {
+  const next=currentReadPage+delta;
+  if(next<0||next>=readingPages.length)return;
+  currentReadPage=next;
+  savedPosition=readingPages[next].start;
+  setReaderControls(false);
+  renderReader();
+}
+function go(id) {
+  if(!document.getElementById(id))return;
+  if(id==='reader'&&activeBook!==0)return;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(id==='reader') {
+    setReaderControls(false);
+    // The reading page must be visible before measuring text height and width.
+    if(pendingRepaginate||!readingPages.length)paginateReading(true);
+    renderReader();
+  }
+  if(id==='reading'||id==='readerQuickSettings')applyReaderPrefs();
+  if(id==='chapters')renderChapters();
+  if(id==='library'||id==='library2')renderLibrary();
+  updateBookContext();
+}
+function openReaderSettings() {go('readerQuickSettings');}
+function closeReaderSettings() {go('reader');}
+function changeReaderFont(delta) {
+  readerFontSize=Math.min(30,Math.max(15,readerFontSize+delta));
+  applyReaderPrefs();
+}
+function setReaderSpacing(value) {readerLineHeight=value;applyReaderPrefs();}
+function setReaderMargin(value) {readerMargin=value;applyReaderPrefs();}
+function size(delta) {changeReaderFont(delta);}
+
+document.addEventListener('keydown',e=>{
+  if(e.target.matches('button,[role="button"]')&&(e.key==='Enter'||e.key===' '))return;
+  if(document.getElementById('reader').classList.contains('active')) {
+    if(e.key==='ArrowRight'||e.key==='PageDown'){readPage(1);e.preventDefault();}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){readPage(-1);e.preventDefault();}
+    if(e.key==='Escape') { if(readerControlsVisible)setReaderControls(false);else go('book'); }
+    if(e.key==='m'||e.key==='M')toggleReaderControls();
+  }else if(document.getElementById('readerQuickSettings').classList.contains('active')){
+    if(e.key==='Escape')closeReaderSettings();
+  }else if(document.getElementById('chapters').classList.contains('active')){
+    if(e.key==='Escape')go(returnToChapters);
+  }
+});
+// Simulates tap zones on the reading text. Native firmware must route through
+// FreeInkUI and MappedInputManager rather than reproducing browser coordinates.
+document.getElementById('readerText').addEventListener('click',e=>{
+  const rect=e.currentTarget.getBoundingClientRect();
+  const position=(e.clientX-rect.left)/rect.width;
+  if(position<0.27)readPage(-1);
+  else if(position>0.73)readPage(1);
+  else toggleReaderControls();
+});
+// Pixel-accurate layout and calibrated physically sized view are separate.
+// X4 Pro: 480x800, 4.3-inch panel; 69x111-mm shell (manufacturer dimensions).
+// Approximate shell pixels before CSS scaling account for real screen bezels.
+const PHYSICAL = (()=>{
+  const diagonalMm=4.3*25.4;
+  const pixelDiagonal=Math.hypot(480,800);
+  const screenWidthMm=diagonalMm*480/pixelDiagonal;
+  const screenHeightMm=diagonalMm*800/pixelDiagonal;
+  const shellWidth=480*69/screenWidthMm;
+  const shellHeight=800*111/screenHeightMm;
+  return {screenWidthMm,screenHeightMm,shellWidth,shellHeight,
+          trueSizeScale:screenWidthMm*(96/25.4)/480};
+})();
+let physicalCalibration=1;
+try {
+  const stored=Number(localStorage.getItem('x4pro-physical-calibration'));
+  if(Number.isFinite(stored)&&stored>=.55&&stored<=1.7)physicalCalibration=stored;
+} catch(e) { /* Some local previews block persistent storage. */ }
+const calSlider=document.getElementById('scaleCal');
+calSlider.value=String(physicalCalibration);
+function setPhysicalCalibration(value) {
+  physicalCalibration=Math.max(.55,Math.min(1.7,Number(value)||1));
+  calSlider.value=String(physicalCalibration);
+  try { localStorage.setItem('x4pro-physical-calibration',String(physicalCalibration)); } catch(e) {}
+  fitDevicePreview();
+}
+function fitDevicePreview() {
+  const actual=document.body.classList.contains('actual-size');
+  const shellW=actual?PHYSICAL.shellWidth:516;
+  const shellH=actual?PHYSICAL.shellHeight:836;
+  const available=document.querySelector('.preview-area');
+  const scale=actual ? PHYSICAL.trueSizeScale*physicalCalibration : Math.min(1,
+    Math.max(.01,(available.clientWidth-24)/shellW),
+    Math.max(.01,(available.clientHeight-24)/shellH));
+  const root=document.documentElement.style;
+  root.setProperty('--device-preview-scale',String(scale));
+  root.setProperty('--shell-width',shellW+'px');
+  root.setProperty('--shell-height',shellH+'px');
+  root.setProperty('--stage-width',shellW*scale+'px');
+  root.setProperty('--stage-height',shellH*scale+'px');
+  root.setProperty('--area-min-height',shellH*scale+24+'px');
+  root.setProperty('--reference-card-width',85.6*(96/25.4)*physicalCalibration+'px');
+  const overflow=actual&&(shellW*scale>available.clientWidth-8 ||
+                  shellH*scale>available.clientHeight-8);
+  document.body.classList.toggle('preview-overflow',overflow);
+  document.getElementById('previewMetadata').textContent=actual
+    ? 'Body 69 × 111 mm · display ~56 × 94 mm'
+    : '480 × 800 pixel layout';
+}
+function setPreviewMode(actual) {
+  document.body.classList.toggle('actual-size',actual);
+  document.getElementById('fitMode').setAttribute('aria-pressed',String(!actual));
+  document.getElementById('actualMode').setAttribute('aria-pressed',String(actual));
+  fitDevicePreview();
+}
+document.getElementById('fitMode').addEventListener('click',()=>setPreviewMode(false));
+document.getElementById('actualMode').addEventListener('click',()=>setPreviewMode(true));
+document.getElementById('calibrateMode').addEventListener('click',()=>{
+  const panel=document.getElementById('previewCalibration');
+  const opening=panel.hidden;
+  panel.hidden=!opening;
+  document.getElementById('calibrateMode').setAttribute('aria-expanded',String(opening));
+  if(opening)setPreviewMode(true);
+  fitDevicePreview();
+});
+calSlider.addEventListener('input',()=>setPhysicalCalibration(calSlider.value));
+document.getElementById('smallerCal').addEventListener('click',()=>setPhysicalCalibration(physicalCalibration-.01));
+document.getElementById('largerCal').addEventListener('click',()=>setPhysicalCalibration(physicalCalibration+.01));
+document.getElementById('resetCal').addEventListener('click',()=>setPhysicalCalibration(1));
+window.addEventListener('resize',fitDevicePreview);
+fitDevicePreview();
+// Make the library entries and chapter selection functional.
+renderLibrary();
+renderChapters();
+const place=document.querySelector('#book .current-place-card');
+place.onclick=openBook;
+place.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openBook();}};
+const chaptersCard=document.querySelector('#book .chapters-card');
+chaptersCard.onclick=()=>openChapters('book');
+chaptersCard.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openChapters('book');}};
+const chapterLabel=document.querySelector('#reader .reader-nav .chapter');
+chapterLabel.title='Tap to browse chapters';
+chapterLabel.setAttribute('role','button');chapterLabel.tabIndex=0;
+chapterLabel.onclick=()=>openChapters('reader');
+chapterLabel.onkeydown=e=>{if(e.key==='Enter')openChapters('reader');};
+// Placeholder settings are visibly disabled rather than implying working hardware APIs.
+document.querySelectorAll('#settings .settings-menu button').forEach((button,i)=>{
+  if(i>0){button.disabled=true;button.title='Not implemented in this UI prototype';}
+});
+updateBookContext();
+applyReaderPrefs();
+setReaderControls(false);
+
+</script></body></html>
