@@ -536,8 +536,16 @@ bool ChapterHtmlSlimParser::captureDropCapCodepoint(const char* bytes, const int
 }
 
 void ChapterHtmlSlimParser::cancelDropCapToWord() {
-  memcpy(partWordBuffer + partWordBufferIndex, dropCap.text, dropCap.length);
-  partWordBufferIndex += dropCap.length;
+  // Every call site only starts drop-cap capture when partWordBufferIndex == 0
+  // (see the capturingSpan/firstLetterPending gates in characterData), so this
+  // copy (<= MAX_DROP_CAP_BYTES) always fits partWordBuffer today. Clamp
+  // anyway: this function has no way to see whether that invariant still
+  // holds, and an unclamped memcpy into a fixed buffer is exactly the kind of
+  // bug that silently stops being safe after an unrelated change elsewhere.
+  const size_t room = partWordBufferIndex < MAX_WORD_SIZE ? MAX_WORD_SIZE - partWordBufferIndex : 0;
+  const size_t copyLen = std::min<size_t>(dropCap.length, room);
+  memcpy(partWordBuffer + partWordBufferIndex, dropCap.text, copyLen);
+  partWordBufferIndex += copyLen;
   dropCap = DropCapState{};
 }
 
@@ -2040,7 +2048,15 @@ void XMLCALL ChapterHtmlSlimParser::startElement(void* userData, const XML_Char*
       self->footnoteLinkDepth = self->depth;
       self->currentFootnoteLinkId = self->currentTextBlock ? self->currentTextBlock->addLinkTarget(href) : 0;
       self->currentFootnote.href[0] = '\0';
-      if (self->currentFootnoteLinkId != 0) strcpy(self->currentFootnote.href, href);
+      if (self->currentFootnoteLinkId != 0) {
+        // addLinkTarget() above already rejected an href too long for this
+        // buffer (it returns 0, so currentFootnoteLinkId stays 0 and this
+        // branch is skipped), but copy bounded regardless: that length check
+        // living in a different function, on a different struct's behalf, is
+        // not a contract this line should depend on silently.
+        strncpy(self->currentFootnote.href, href, sizeof(self->currentFootnote.href) - 1);
+        self->currentFootnote.href[sizeof(self->currentFootnote.href) - 1] = '\0';
+      }
       self->currentFootnote.number[0] = '\0';
       self->currentFootnoteLinkTextLen = 0;
 
