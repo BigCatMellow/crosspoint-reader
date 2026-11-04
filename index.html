@@ -698,6 +698,12 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
 .detail-line{padding:10px;border:1px solid #aaa;font-size:13px}
 .panel-stack details{font-size:14px}
 .panel-stack summary{cursor:pointer;font-weight:700}
+
+.preset-direct{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;margin:0 0 12px}
+.preset-direct select{width:65%;min-height:42px;padding:6px;border:1px solid #111;background:var(--paper,#f6f4ec);color:var(--ink,#111);font:14px Inter,Arial,sans-serif}
+.paragraph-choice{font-size:12px!important;text-align:center}
+.paragraph-choice[aria-pressed=true]{background:var(--ink,#111);color:var(--paper,#f6f4ec)}
+#reading .quick-setting,#readerQuickSettings .quick-setting{margin-bottom:15px}
 </style></head><body>
 <header class="preview-tools" aria-label="Preview controls">
   <span class="tool-label">X4 Pro preview</span>
@@ -759,7 +765,7 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
 <nav class="reader-footer" aria-label="Page controls"><button id="prevRead" onclick="readPage(-1)" aria-label="Previous page">‹ Previous</button><button id="nextRead" onclick="readPage(1)" aria-label="Next page">Next ›</button></nav>
 </section><section class="page" id="chapters"><div class="top"><span>Book</span><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Chapters</h1><div class="stack"><div class="row"><div class="title">I. Down the Rabbit-Hole</div></div><div class="row" onclick="go('reader')"><div class="title">II. The Pool of Tears</div><div class="meta">Current book opening</div></div><div class="row"><div class="title">III. A Caucus-Race and a Long Tale</div></div><div class="row"><div class="title">IV. The Rabbit Sends in a Little Bill</div></div></div><nav class="footer" aria-label="Chapters navigation"><button onclick="go(returnToChapters)">‹ Back</button><button onclick="go('home')">Home</button></nav></section>
 
-<section class="page" id="readerQuickSettings">
+<section class="page paper-panel" id="readerQuickSettings">
   <div class="reader-nav">
     <button class="back-arrow" onclick="closeReaderSettings()" aria-label="Back">‹</button>
     <span class="chapter"></span>
@@ -767,7 +773,7 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
   </div>
 
   <div class="font-direct"><label for="quickFont">Font</label><select id="quickFont" onchange="setReaderFont(this.value)"><option value="Inter">Inter</option><option value="Georgia">Georgia</option><option value="Arial">Arial</option></select></div>
-  <div class="quick-preview"><div class="quick-preview-text" id="quickPreviewText">Alice was beginning to get very tired…</div></div>
+  <div class="preset-direct"><label for="quickPreset">Preset</label><select id="quickPreset" onchange="choosePreset(this.value)"><option value="Custom">Custom</option><option value="Comfortable">Comfortable</option><option value="Compact">Compact</option><option value="Spacious">Spacious</option></select></div><div class="quick-preview"><div class="quick-preview-text" id="quickPreviewText">Alice was beginning to get very tired…</div></div>
 
   <div class="quick-setting">
     <div class="quick-label">
@@ -809,14 +815,14 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
 <div class="detail-line">Battery <strong>82% (sample)</strong></div>
 <details><summary>Other Display Options</summary><p class="demo-note">Dark mode, refresh behavior, manual refresh, and sleep-screen settings require native integration.</p></details></div></section>
 <section class="page paper-panel" id="transfer"><div class="top"><button class="crumb-btn" onclick="go('settings')">‹ Settings</button><span>BOOKS</span></div><h1>Books & Connections</h1><p class="demo-note">Connection controls are illustrative, not connected to hardware.</p><div class="panel-stack"><div class="detail-line">Wi-Fi <strong>Demo: disconnected</strong></div><div class="detail-line">Bluetooth <strong>Demo: off</strong></div><button onclick="showTransferInfo('USB')">USB Book Transfer</button><button onclick="showTransferInfo('Wireless')">Wireless Book Transfer</button><p id="transferInfo" class="demo-note" aria-live="polite">Select a transfer method.</p><details><summary>Other device options</summary><p class="demo-note">OPDS catalogs, button remapping, and sleep behavior remain available for future native mapping.</p></details></div></section>
-<section class="page" id="reading">
+<section class="page paper-panel" id="reading">
   <div class="top">
     <button class="crumb-btn" onclick="go('settings')">‹ Settings</button>
     <span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span>
   </div>
 
   <div class="font-direct"><label for="fullFont">Font</label><select id="fullFont" onchange="setReaderFont(this.value)"><option value="Inter">Inter</option><option value="Georgia">Georgia</option><option value="Arial">Arial</option></select></div>
-  <div class="quick-preview"><div class="quick-preview-text" id="fullQuickPreviewText">Alice was beginning to get very tired…</div></div>
+  <div class="preset-direct"><label for="fullPreset">Preset</label><select id="fullPreset" onchange="choosePreset(this.value)"><option value="Custom">Custom</option><option value="Comfortable">Comfortable</option><option value="Compact">Compact</option><option value="Spacious">Spacious</option></select></div><div class="quick-preview"><div class="quick-preview-text" id="fullQuickPreviewText">Alice was beginning to get very tired…</div></div>
 
   <div class="quick-setting">
     <div class="quick-label">
@@ -845,6 +851,11 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
       <button id="fullMarginNormal" onclick="setReaderMargin(10)" aria-label="Normal margins"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"></rect><path d="M7 8h10"></path><path d="M7 12h10"></path><path d="M7 16h10"></path></svg></span><span class="choice-name">Normal</span></button>
       <button id="fullMarginWide" onclick="setReaderMargin(22)" aria-label="Wide margins"><span class="setting-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1"></rect><path d="M9.5 8h5"></path><path d="M9.5 12h5"></path><path d="M9.5 16h5"></path></svg></span><span class="choice-name">Wide</span></button>
     </div>
+  </div>
+  <div class="quick-setting"><div class="quick-label">Paragraph Layout</div>
+    <div class="three"><button class="paragraph-choice" data-style="Normal" onclick="chooseParagraph('Normal')">Normal</button><button class="paragraph-choice" data-style="Spaced" onclick="chooseParagraph('Spaced')">Spaced</button><button class="paragraph-choice" data-style="Indented" onclick="chooseParagraph('Indented')">Indented</button></div>
+    <p class="demo-note" id="paragraphDemo">Normal — preview only; native paragraph settings require verification.</p>
+    <details><summary>More Typography</summary><p class="demo-note">Alignment and hyphenation remain available when mapped from firmware.</p></details>
   </div>
 </section>
 </main></div></div></div><script>
@@ -884,6 +895,8 @@ let librarySort = 'recent';
 let libraryPage = 0;
 let previousReadingPosition=null;
 let touchTurningEnabled=true;
+let readerPreset='Custom';
+let paragraphStyle='Normal';
 let readerLineHeight = 1.58;
 let readerMargin = 10;
 let savedPosition = 0;
@@ -1059,6 +1072,7 @@ function applyReaderPrefs() {
   updateSettingsMirror({previewId:'quickPreviewText',fontValueId:'fontValue',spaceIds:['spaceTight','spaceNormal','spaceRoomy'],marginIds:['marginNarrow','marginNormal','marginWide']});
   updateSettingsMirror({previewId:'fullQuickPreviewText',fontValueId:'fullFontValue',spaceIds:['fullSpaceTight','fullSpaceNormal','fullSpaceRoomy'],marginIds:['fullMarginNarrow','fullMarginNormal','fullMarginWide']});
   for(const id of ['quickFont','fullFont']) document.getElementById(id).value=readerFont;
+  for(const id of ['quickPreset','fullPreset']) document.getElementById(id).value=readerPreset;
   pendingRepaginate=true;
 }
 function pageSource() {
@@ -1136,17 +1150,30 @@ function go(id) {
 function openReaderSettings() {go('readerQuickSettings');}
 function closeReaderSettings() {go('reader');}
 function changeReaderFont(delta) {
-  readerFontSize=Math.min(30,Math.max(15,readerFontSize+delta));
+  readerPreset='Custom';readerFontSize=Math.min(30,Math.max(15,readerFontSize+delta));
   applyReaderPrefs();
 }
-function setReaderSpacing(value) {readerLineHeight=value;applyReaderPrefs();}
-function setReaderMargin(value) {readerMargin=value;applyReaderPrefs();}
+function setReaderSpacing(value) {readerPreset='Custom';readerLineHeight=value;applyReaderPrefs();}
+function setReaderMargin(value) {readerPreset='Custom';readerMargin=value;applyReaderPrefs();}
 function size(delta) {changeReaderFont(delta);}
+function choosePreset(value){
+ readerPreset=value;
+ if(value==='Comfortable'){readerFont='Inter';readerFontSize=21;readerLineHeight=1.58;readerMargin=10;}
+ if(value==='Compact'){readerFont='Inter';readerFontSize=18;readerLineHeight=1.38;readerMargin=0;}
+ if(value==='Spacious'){readerFont='Georgia';readerFontSize=24;readerLineHeight=1.78;readerMargin=22;}
+ applyReaderPrefs();
+}
+function chooseParagraph(value){
+ paragraphStyle=value;
+ for(const button of document.querySelectorAll('.paragraph-choice'))button.setAttribute('aria-pressed',String(button.dataset.style===value));
+ const message=document.getElementById('paragraphDemo');
+ if(message)message.textContent=value+' — preview only; native paragraph settings require verification.';
+}
 function showTransferInfo(method){
  const messages={USB:'Connect by USB; actual transfer steps depend on the installed firmware.',Wireless:'Send books over Wi-Fi once the device supports and configures a transfer service.'};
  document.getElementById('transferInfo').textContent=messages[method]||'';
 }
-function setReaderFont(value) { if(!['Inter','Georgia','Arial'].includes(value))return; readerFont=value;applyReaderPrefs(); }
+function setReaderFont(value) { if(!['Inter','Georgia','Arial'].includes(value))return; readerPreset='Custom';readerFont=value;applyReaderPrefs(); }
 function returnToLastPosition(){
  if(previousReadingPosition===null)return;
  const target=previousReadingPosition;previousReadingPosition=currentReadPage;
