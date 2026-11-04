@@ -676,6 +676,15 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
 .reader-jump label,.reader-jump input{grid-column:1/-1}.reader-jump input{width:100%}.reader-jump button{min-height:38px;text-align:center;font-size:13px}
 .font-direct{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:700;margin:0 0 12px}.font-direct select{width:65%}
 #readerQuickSettings .quick-setting,#reading .quick-setting{margin-bottom:16px}
+
+.library-direct[hidden],.library-folder-panel[hidden],.reader-extra[hidden]{display:none!important}
+.library-utility{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.library-utility button{min-height:40px;font-size:13px;text-align:center}
+#reader .reader-direct-tools{grid-template-columns:repeat(4,minmax(0,1fr))}
+#reader .reader-extra:not([hidden]){position:absolute;z-index:9;top:160px;left:8px;right:8px;border:2px solid #111;background:var(--paper,#f6f4ec);padding:12px;font:14px Inter,Arial,sans-serif}
+#reader .reader-extra input{width:100%;min-height:38px;padding:6px}
+#reader .reader-jump:not([hidden]){top:160px}
+.demo-note{font-size:12px;line-height:1.4;color:#444}
 </style></head><body>
 <header class="preview-tools" aria-label="Preview controls">
   <span class="tool-label">X4 Pro preview</span>
@@ -723,8 +732,8 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
   </button>
 </nav>
 </section>
-<section class="page" id="library"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="library-direct"><input class="library-search" type="search" placeholder="Search title or author" aria-label="Search books" oninput="setLibrarySearch(this.value)"><label>Sort <select class="library-sort" aria-label="Sort books" onchange="setLibrarySort(this.value)"><option value="recent">Recent</option><option value="title">Title</option><option value="author">Author</option></select></label></div><div class="stack library-cards"><div class="row" onclick="go('book')"><div class="title">Alice’s Adventures in Wonderland</div><div class="meta">Lewis Carroll · 38%</div></div><div class="row"><div class="title">Frankenstein</div><div class="meta">Mary Shelley · Not started</div></div><div class="row"><div class="title">Pride and Prejudice</div><div class="meta">Jane Austen · Not started</div></div><div class="row"><div class="title">The Time Machine</div><div class="meta">H. G. Wells · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button disabled>‹ Previous</button><button onclick="go('library2')">Next ›</button></div></section>
-<section class="page" id="library2"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="library-direct"><input class="library-search" type="search" placeholder="Search title or author" aria-label="Search books" oninput="setLibrarySearch(this.value)"><label>Sort <select class="library-sort" aria-label="Sort books" onchange="setLibrarySort(this.value)"><option value="recent">Recent</option><option value="title">Title</option><option value="author">Author</option></select></label></div><div class="stack library-cards"><div class="row"><div class="title">The Adventures of Sherlock Holmes</div><div class="meta">Arthur Conan Doyle · Not started</div></div><div class="row"><div class="title">The Wonderful Wizard of Oz</div><div class="meta">L. Frank Baum · Not started</div></div><div class="row"><div class="title">The Secret Garden</div><div class="meta">Frances Hodgson Burnett · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button onclick="go('library')">‹ Previous</button><button disabled>Next ›</button></div></section>
+<section class="page" id="library"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="library-utility"><button onclick="toggleLibraryTools()">Find / Sort</button><button onclick="toggleLibraryFolders()">Folders</button></div><p id="libraryNotice" class="demo-note" hidden></p><div class="library-direct" hidden><input class="library-search" type="search" placeholder="Search title or author" aria-label="Search books" oninput="setLibrarySearch(this.value)"><label>Sort <select class="library-sort" aria-label="Sort books" onchange="setLibrarySort(this.value)"><option value="recent">Recent</option><option value="title">Title</option><option value="author">Author</option></select></label></div><div class="stack library-cards"><div class="row" onclick="go('book')"><div class="title">Alice’s Adventures in Wonderland</div><div class="meta">Lewis Carroll · 38%</div></div><div class="row"><div class="title">Frankenstein</div><div class="meta">Mary Shelley · Not started</div></div><div class="row"><div class="title">Pride and Prejudice</div><div class="meta">Jane Austen · Not started</div></div><div class="row"><div class="title">The Time Machine</div><div class="meta">H. G. Wells · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button disabled>‹ Previous</button><button onclick="go('library2')">Next ›</button></div></section>
+<section class="page" id="library2"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="library-utility"><button onclick="toggleLibraryTools()">Find / Sort</button><button onclick="toggleLibraryFolders()">Folders</button></div><p class="demo-note library-folder-panel" hidden>Folder browsing uses device library data.</p><div class="library-direct" hidden><input class="library-search" type="search" placeholder="Search title or author" aria-label="Search books" oninput="setLibrarySearch(this.value)"><label>Sort <select class="library-sort" aria-label="Sort books" onchange="setLibrarySort(this.value)"><option value="recent">Recent</option><option value="title">Title</option><option value="author">Author</option></select></label></div><div class="stack library-cards"><div class="row"><div class="title">The Adventures of Sherlock Holmes</div><div class="meta">Arthur Conan Doyle · Not started</div></div><div class="row"><div class="title">The Wonderful Wizard of Oz</div><div class="meta">L. Frank Baum · Not started</div></div><div class="row"><div class="title">The Secret Garden</div><div class="meta">Frances Hodgson Burnett · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button onclick="go('library')">‹ Previous</button><button disabled>Next ›</button></div></section>
 <section class="page" id="book"><div class="top"><button class="crumb-btn" onclick="go('library')">‹ Library</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div>
 <div class="book-head">
   <h1>Alice’s Adventures in Wonderland</h1>
@@ -746,7 +755,7 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
   <span class="chapter">Chapter I</span>
   <button class="reader-settings" onclick="openReaderSettings()" aria-label="Reading Settings">Aa</button>
 </div>
-<nav class="reader-direct-tools" aria-label="Reading tools"><button onclick="openChapters('reader')">Contents</button><button id="bookmarkAction" onclick="toggleBookmark()">Bookmark</button><button onclick="openReaderSettings()">Text Aa</button><button onclick="toggleJumpPanel()">Go To</button></nav><div class="reader-jump" id="readerJump" hidden><label for="jumpPercent">Jump to <output id="jumpValue">38%</output></label><input id="jumpPercent" type="range" min="0" max="100" value="38" oninput="document.getElementById('jumpValue').textContent=this.value+'%'"><button onclick="jumpToPercent()">Go</button><button onclick="toggleJumpPanel(false)">Cancel</button></div>
+<nav class="reader-direct-tools" aria-label="Reading tools"><button onclick="openChapters('reader')">Contents</button><button onclick="toggleJumpPanel()">Go To</button><button id="returnPosition" onclick="returnToLastPosition()" disabled>Return</button><button onclick="openReaderSettings()">Text Aa</button><button onclick="toggleReaderSearch()">Search</button><button onclick="toggleDictionaryInfo()">Dictionary</button><button onclick="go('display')">Display</button><button onclick="setReaderControls(false)">Close</button></nav><div class="reader-extra" id="readerExtra" hidden></div><div class="reader-jump" id="readerJump" hidden><label for="jumpPercent">Jump to <output id="jumpValue">38%</output></label><input id="jumpPercent" type="range" min="0" max="100" value="38" oninput="document.getElementById('jumpValue').textContent=this.value+'%'"><button onclick="jumpToPercent()">Go</button><button onclick="toggleJumpPanel(false)">Cancel</button></div>
 <div id="readerText" role="group" aria-label="Book text. Tap left or right to turn pages, center for controls." title="Tap center for controls, edges to turn pages"></div>
 
 <nav class="reader-footer" aria-label="Page controls"><button id="prevRead" onclick="readPage(-1)" aria-label="Previous page">‹ Previous</button><button id="nextRead" onclick="readPage(1)" aria-label="Next page">Next ›</button></nav>
@@ -859,7 +868,7 @@ There was nothing so very remarkable in that; nor did Alice think it so very muc
 const DEMO_CHAPTER_TEXT = Array(5).fill(readingText).join('\n\n');
 let activeBook = 0;
 let activeChapter = 0;
-let returnToChapters = 'book';
+let returnToChapters = 'reader';
 let readingPages = [];
 let currentReadPage = 0;
 let readerFontSize = 21;
@@ -867,7 +876,8 @@ let readerFont = 'Inter';
 let libraryQuery = '';
 let librarySort = 'recent';
 let libraryPage = 0;
-const savedBookmarks = new Set();
+let previousReadingPosition=null;
+let touchTurningEnabled=true;
 let readerLineHeight = 1.58;
 let readerMargin = 10;
 let savedPosition = 0;
@@ -881,6 +891,7 @@ function setReaderControls(visible) {
   reader.querySelector('.reader-nav').setAttribute('aria-hidden', String(!readerControlsVisible));
   reader.querySelector('.reader-footer').setAttribute('aria-hidden', String(!readerControlsVisible));
   reader.querySelector('.reader-direct-tools').setAttribute('aria-hidden', String(!readerControlsVisible));
+  document.getElementById('readerExtra').hidden=true;
   if(!readerControlsVisible) document.getElementById('readerJump').hidden=true;
 }
 function toggleReaderControls() { setReaderControls(!readerControlsVisible); }
@@ -933,10 +944,15 @@ function resumeHomeBook() {
   activeBook=0;
   go('reader');
 }
-function showBook(index) {
+function showBook(index){
   activeBook=index;
   updateBookContext();
-  go('book');
+  if(index===0)go('reader');
+  else{
+    const el=document.getElementById('libraryNotice');
+    el.textContent='Only Alice has reading text in this HTML preview.';
+    el.hidden=false;
+  }
 }
 function openBook() {
   if(activeBook!==0) return;
@@ -944,11 +960,12 @@ function openBook() {
 }
 function openChapters(source) {
   if(activeBook!==0) return;
-  returnToChapters=source||'book';
+  returnToChapters=source||'reader';
   go('chapters');
 }
 function selectChapter(i) {
   if(i<0||i>=CHAPTERS.length) return;
+  previousReadingPosition=currentReadPage;
   activeChapter=i;
   currentReadPage=0;
   savedPosition=0;
@@ -1105,7 +1122,7 @@ function renderReader() {
   document.getElementById('nextRead').disabled=currentReadPage>=readingPages.length-1;
   document.getElementById('readerText').setAttribute('aria-label','Reading text. Tap center to show controls or either side to turn pages.');
   updateBookContext();
-  updateBookmarkAction();
+  document.getElementById('returnPosition').disabled=previousReadingPosition===null;
 }
 function readPage(delta) {
   const next=currentReadPage+delta;
@@ -1141,11 +1158,34 @@ function setReaderSpacing(value) {readerLineHeight=value;applyReaderPrefs();}
 function setReaderMargin(value) {readerMargin=value;applyReaderPrefs();}
 function size(delta) {changeReaderFont(delta);}
 function setReaderFont(value) { if(!['Inter','Georgia','Arial'].includes(value))return; readerFont=value;applyReaderPrefs(); }
-function bookmarkKey(){return activeChapter+':'+currentReadPage;}
-function toggleBookmark(){const key=bookmarkKey(); if(savedBookmarks.has(key))savedBookmarks.delete(key);else savedBookmarks.add(key);updateBookmarkAction();}
-function updateBookmarkAction(){const button=document.getElementById('bookmarkAction');const saved=savedBookmarks.has(bookmarkKey());button.textContent=saved?'Bookmarked ✓':'Bookmark';button.setAttribute('aria-pressed',String(saved));}
+function returnToLastPosition(){
+ if(previousReadingPosition===null)return;
+ const target=previousReadingPosition;previousReadingPosition=currentReadPage;
+ currentReadPage=Math.max(0,Math.min(readingPages.length-1,target));
+ savedPosition=readingPages[currentReadPage]?.start||0;renderReader();
+}
+function toggleReaderSearch(){
+ const el=document.getElementById('readerExtra');el.hidden=!el.hidden;el.replaceChildren();
+ if(el.hidden)return;
+ const input=document.createElement('input');input.placeholder='Search sample chapter';
+ const p=document.createElement('p');
+ input.oninput=()=>{const q=input.value.trim().toLowerCase();p.textContent=!q?'':DEMO_CHAPTER_TEXT.toLowerCase().includes(q)?'Found in sample text':'No match in sample text';};
+ el.append(input,p);
+}
+function toggleDictionaryInfo(){
+ const el=document.getElementById('readerExtra');el.hidden=!el.hidden;
+ el.textContent=el.hidden?'':'Dictionary lookup needs installed dictionary data and word selection.';
+}
+function toggleLibraryTools(){
+ const page=document.querySelector('#library.active,#library2.active');
+ if(page){const el=page.querySelector('.library-direct');el.hidden=!el.hidden;}
+}
+function toggleLibraryFolders(){
+ const page=document.querySelector('#library.active,#library2.active');
+ if(page){const el=page.querySelector('.library-folder-panel');if(el)el.hidden=!el.hidden;}
+}
 function toggleJumpPanel(force){const el=document.getElementById('readerJump');el.hidden=typeof force==='boolean'?!force:!el.hidden;}
-function jumpToPercent(){const pct=Number(document.getElementById('jumpPercent').value);currentReadPage=Math.round((readingPages.length-1)*pct/100);savedPosition=readingPages[currentReadPage]?.start||0;toggleJumpPanel(false);renderReader();}
+function jumpToPercent(){const pct=Number(document.getElementById('jumpPercent').value);previousReadingPosition=currentReadPage;currentReadPage=Math.round((readingPages.length-1)*pct/100);savedPosition=readingPages[currentReadPage]?.start||0;toggleJumpPanel(false);renderReader();}
 
 
 document.addEventListener('keydown',e=>{
@@ -1153,7 +1193,7 @@ document.addEventListener('keydown',e=>{
   if(document.getElementById('reader').classList.contains('active')) {
     if(e.key==='ArrowRight'||e.key==='PageDown'){readPage(1);e.preventDefault();}
     if(e.key==='ArrowLeft'||e.key==='PageUp'){readPage(-1);e.preventDefault();}
-    if(e.key==='Escape') { if(readerControlsVisible)setReaderControls(false);else go('book'); }
+    if(e.key==='Escape') { if(readerControlsVisible)setReaderControls(false);else go('home'); }
     if(e.key==='m'||e.key==='M')toggleReaderControls();
   }else if(document.getElementById('readerQuickSettings').classList.contains('active')){
     if(e.key==='Escape')closeReaderSettings();
@@ -1166,8 +1206,8 @@ document.addEventListener('keydown',e=>{
 document.getElementById('readerText').addEventListener('click',e=>{
   const rect=e.currentTarget.getBoundingClientRect();
   const position=(e.clientX-rect.left)/rect.width;
-  if(position<0.27)readPage(-1);
-  else if(position>0.73)readPage(1);
+  if(touchTurningEnabled&&position<0.27)readPage(-1);
+  else if(touchTurningEnabled&&position>0.73)readPage(1);
   else toggleReaderControls();
 });
 // Pixel-accurate layout and calibrated physically sized view are separate.
