@@ -661,6 +661,21 @@ body.actual-size.preview-overflow .preview-area{flex:none;overflow:auto;padding:
 body.actual-size.preview-overflow .preview-stage{flex:none}
 @media(max-width:540px){body{background:#d5d2c8}}
 
+
+/* Direct-access Paper mockup: visible controls rather than nested menus. */
+.library-direct{display:grid;grid-template-columns:1fr 134px;gap:8px;margin:-8px 0 14px;align-items:end}
+.library-direct label{font-size:11px;font-weight:700;display:grid;gap:3px}
+.library-direct input,.library-direct select,.font-direct select{font:600 14px Inter,Arial,sans-serif;border:1px solid var(--ink,#111);border-radius:0;background:var(--paper,#f6f4ec);color:var(--ink,#111);min-height:38px;padding:6px;width:100%;min-width:0}
+.library-cards{gap:7px!important}.library-cards .row{height:72px!important;min-height:72px!important;padding:9px 12px!important}
+.library-cards .title{font-size:16px}.library-cards .meta{font-size:12px}
+#reader .reader-direct-tools{display:none;position:absolute;top:54px;left:0;right:0;z-index:6;background:var(--paper,#f6f4ec);grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--ink,#111);padding:5px;gap:4px}
+#reader.show-controls .reader-direct-tools{display:grid}
+#reader .reader-direct-tools button{min-height:45px;padding:3px;font-size:12px;text-align:center;border-width:1px}
+#reader .reader-direct-tools button[aria-pressed=true]{background:var(--ink,#111);color:var(--paper,#f6f4ec)}
+#reader .reader-jump:not([hidden]){position:absolute;top:105px;left:8px;right:8px;z-index:8;background:var(--paper,#f6f4ec);border:2px solid var(--ink,#111);padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.reader-jump label,.reader-jump input{grid-column:1/-1}.reader-jump input{width:100%}.reader-jump button{min-height:38px;text-align:center;font-size:13px}
+.font-direct{display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:700;margin:0 0 12px}.font-direct select{width:65%}
+#readerQuickSettings .quick-setting,#reading .quick-setting{margin-bottom:16px}
 </style></head><body>
 <header class="preview-tools" aria-label="Preview controls">
   <span class="tool-label">X4 Pro preview</span>
@@ -708,8 +723,8 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
   </button>
 </nav>
 </section>
-<section class="page" id="library"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="stack library-cards"><div class="row" onclick="go('book')"><div class="title">Alice’s Adventures in Wonderland</div><div class="meta">Lewis Carroll · 38%</div></div><div class="row"><div class="title">Frankenstein</div><div class="meta">Mary Shelley · Not started</div></div><div class="row"><div class="title">Pride and Prejudice</div><div class="meta">Jane Austen · Not started</div></div><div class="row"><div class="title">The Time Machine</div><div class="meta">H. G. Wells · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button disabled>‹ Previous</button><button onclick="go('library2')">Next ›</button></div></section>
-<section class="page" id="library2"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="stack library-cards"><div class="row"><div class="title">The Adventures of Sherlock Holmes</div><div class="meta">Arthur Conan Doyle · Not started</div></div><div class="row"><div class="title">The Wonderful Wizard of Oz</div><div class="meta">L. Frank Baum · Not started</div></div><div class="row"><div class="title">The Secret Garden</div><div class="meta">Frances Hodgson Burnett · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button onclick="go('library')">‹ Previous</button><button disabled>Next ›</button></div></section>
+<section class="page" id="library"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="library-direct"><input class="library-search" type="search" placeholder="Search title or author" aria-label="Search books" oninput="setLibrarySearch(this.value)"><label>Sort <select class="library-sort" aria-label="Sort books" onchange="setLibrarySort(this.value)"><option value="recent">Recent</option><option value="title">Title</option><option value="author">Author</option></select></label></div><div class="stack library-cards"><div class="row" onclick="go('book')"><div class="title">Alice’s Adventures in Wonderland</div><div class="meta">Lewis Carroll · 38%</div></div><div class="row"><div class="title">Frankenstein</div><div class="meta">Mary Shelley · Not started</div></div><div class="row"><div class="title">Pride and Prejudice</div><div class="meta">Jane Austen · Not started</div></div><div class="row"><div class="title">The Time Machine</div><div class="meta">H. G. Wells · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button disabled>‹ Previous</button><button onclick="go('library2')">Next ›</button></div></section>
+<section class="page" id="library2"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="library-direct"><input class="library-search" type="search" placeholder="Search title or author" aria-label="Search books" oninput="setLibrarySearch(this.value)"><label>Sort <select class="library-sort" aria-label="Sort books" onchange="setLibrarySort(this.value)"><option value="recent">Recent</option><option value="title">Title</option><option value="author">Author</option></select></label></div><div class="stack library-cards"><div class="row"><div class="title">The Adventures of Sherlock Holmes</div><div class="meta">Arthur Conan Doyle · Not started</div></div><div class="row"><div class="title">The Wonderful Wizard of Oz</div><div class="meta">L. Frank Baum · Not started</div></div><div class="row"><div class="title">The Secret Garden</div><div class="meta">Frances Hodgson Burnett · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button onclick="go('library')">‹ Previous</button><button disabled>Next ›</button></div></section>
 <section class="page" id="book"><div class="top"><button class="crumb-btn" onclick="go('library')">‹ Library</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div>
 <div class="book-head">
   <h1>Alice’s Adventures in Wonderland</h1>
@@ -731,6 +746,7 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
   <span class="chapter">Chapter I</span>
   <button class="reader-settings" onclick="openReaderSettings()" aria-label="Reading Settings">Aa</button>
 </div>
+<nav class="reader-direct-tools" aria-label="Reading tools"><button onclick="openChapters('reader')">Contents</button><button id="bookmarkAction" onclick="toggleBookmark()">Bookmark</button><button onclick="openReaderSettings()">Text Aa</button><button onclick="toggleJumpPanel()">Go To</button></nav><div class="reader-jump" id="readerJump" hidden><label for="jumpPercent">Jump to <output id="jumpValue">38%</output></label><input id="jumpPercent" type="range" min="0" max="100" value="38" oninput="document.getElementById('jumpValue').textContent=this.value+'%'"><button onclick="jumpToPercent()">Go</button><button onclick="toggleJumpPanel(false)">Cancel</button></div>
 <div id="readerText" role="group" aria-label="Book text. Tap left or right to turn pages, center for controls." title="Tap center for controls, edges to turn pages"></div>
 
 <nav class="reader-footer" aria-label="Page controls"><button id="prevRead" onclick="readPage(-1)" aria-label="Previous page">‹ Previous</button><button id="nextRead" onclick="readPage(1)" aria-label="Next page">Next ›</button></nav>
@@ -743,6 +759,7 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
     <span></span>
   </div>
 
+  <div class="font-direct"><label for="quickFont">Font</label><select id="quickFont" onchange="setReaderFont(this.value)"><option value="Inter">Inter</option><option value="Georgia">Georgia</option><option value="Arial">Arial</option></select></div>
   <div class="quick-preview"><div class="quick-preview-text" id="quickPreviewText">Alice was beginning to get very tired…</div></div>
 
   <div class="quick-setting">
@@ -783,6 +800,7 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
     <span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span>
   </div>
 
+  <div class="font-direct"><label for="fullFont">Font</label><select id="fullFont" onchange="setReaderFont(this.value)"><option value="Inter">Inter</option><option value="Georgia">Georgia</option><option value="Arial">Arial</option></select></div>
   <div class="quick-preview"><div class="quick-preview-text" id="fullQuickPreviewText">Alice was beginning to get very tired…</div></div>
 
   <div class="quick-setting">
@@ -845,6 +863,11 @@ let returnToChapters = 'book';
 let readingPages = [];
 let currentReadPage = 0;
 let readerFontSize = 21;
+let readerFont = 'Inter';
+let libraryQuery = '';
+let librarySort = 'recent';
+let libraryPage = 0;
+const savedBookmarks = new Set();
 let readerLineHeight = 1.58;
 let readerMargin = 10;
 let savedPosition = 0;
@@ -857,6 +880,8 @@ function setReaderControls(visible) {
   reader.classList.toggle('show-controls', readerControlsVisible);
   reader.querySelector('.reader-nav').setAttribute('aria-hidden', String(!readerControlsVisible));
   reader.querySelector('.reader-footer').setAttribute('aria-hidden', String(!readerControlsVisible));
+  reader.querySelector('.reader-direct-tools').setAttribute('aria-hidden', String(!readerControlsVisible));
+  if(!readerControlsVisible) document.getElementById('readerJump').hidden=true;
 }
 function toggleReaderControls() { setReaderControls(!readerControlsVisible); }
 
@@ -930,13 +955,36 @@ function selectChapter(i) {
   updateBookContext();
   go('reader');
 }
+function setLibrarySearch(value) {
+  libraryQuery=value.trim().toLocaleLowerCase();
+  libraryPage=0;
+  renderLibrary();
+}
+function setLibrarySort(value) {
+  librarySort=value;
+  libraryPage=0;
+  renderLibrary();
+}
+function changeLibraryPage(delta) {
+  libraryPage=Math.max(0,Math.min(Math.ceil(filteredBooks().length/4)-1,libraryPage+delta));
+  go(libraryPage===0?'library':'library2');
+}
+function filteredBooks() {
+  const books=BOOKS.map((book,index)=>({...book,index})).filter(book=>
+    (book.title+' '+book.author).toLocaleLowerCase().includes(libraryQuery));
+  if(librarySort==='title') books.sort((a,b)=>a.title.localeCompare(b.title));
+  if(librarySort==='author') books.sort((a,b)=>a.author.localeCompare(b.author)||a.title.localeCompare(b.title));
+  return books;
+}
 function renderLibrary() {
-  [0,1].forEach(page => {
-    const screen=document.getElementById(page===0?'library':'library2');
+  const books=filteredBooks();
+  const pages=Math.max(1,Math.ceil(books.length/4));
+  libraryPage=Math.min(libraryPage,pages-1);
+  ['library','library2'].forEach(id=>{
+    const screen=document.getElementById(id);
     const list=screen.querySelector('.library-cards');
     list.replaceChildren();
-    const start=page*4;
-    BOOKS.slice(start,start+4).forEach((book,j)=>{
+    books.slice(libraryPage*4,libraryPage*4+4).forEach(book=>{
       const row=document.createElement('button');
       row.className='row library-entry';
       row.type='button';
@@ -944,9 +992,17 @@ function renderLibrary() {
       const subtitle=document.createElement('span');subtitle.className='meta';
       subtitle.textContent=book.author+' · '+(book.progress?fmtPercent(book.progress):'Not started');
       row.append(title,subtitle);
-      row.addEventListener('click',()=>showBook(start+j));
+      row.addEventListener('click',()=>showBook(book.index));
       list.appendChild(row);
     });
+    if(!books.length){const empty=document.createElement('p');empty.textContent='No matching books';list.appendChild(empty);}
+    screen.querySelector('.library-search').value=libraryQuery;
+    screen.querySelector('.library-sort').value=librarySort;
+    const buttons=screen.querySelectorAll('.footer button');
+    buttons[0].disabled=libraryPage===0;
+    buttons[0].onclick=()=>changeLibraryPage(-1);
+    buttons[1].disabled=libraryPage>=pages-1;
+    buttons[1].onclick=()=>changeLibraryPage(1);
   });
 }
 function renderChapters() {
@@ -970,6 +1026,7 @@ function renderChapters() {
 function updateSettingsMirror(config) {
   const preview=document.getElementById(config.previewId);
   if(preview){
+    preview.style.fontFamily=readerFont+', sans-serif';
     preview.style.fontSize=readerFontSize+'px';
     preview.style.lineHeight=String(readerLineHeight);
     preview.style.paddingLeft=readerMargin+'px';
@@ -993,12 +1050,14 @@ function updateSettingsMirror(config) {
 }
 function applyReaderPrefs() {
   const target=document.getElementById('readerText');
+  target.style.fontFamily=readerFont+', sans-serif';
   target.style.fontSize=readerFontSize+'px';
   target.style.lineHeight=String(readerLineHeight);
   target.style.paddingLeft=readerMargin+'px';
   target.style.paddingRight=readerMargin+'px';
   updateSettingsMirror({previewId:'quickPreviewText',fontValueId:'fontValue',spaceIds:['spaceTight','spaceNormal','spaceRoomy'],marginIds:['marginNarrow','marginNormal','marginWide']});
   updateSettingsMirror({previewId:'fullQuickPreviewText',fontValueId:'fullFontValue',spaceIds:['fullSpaceTight','fullSpaceNormal','fullSpaceRoomy'],marginIds:['fullMarginNarrow','fullMarginNormal','fullMarginWide']});
+  for(const id of ['quickFont','fullFont']) document.getElementById(id).value=readerFont;
   pendingRepaginate=true;
 }
 function pageSource() {
@@ -1046,6 +1105,7 @@ function renderReader() {
   document.getElementById('nextRead').disabled=currentReadPage>=readingPages.length-1;
   document.getElementById('readerText').setAttribute('aria-label','Reading text. Tap center to show controls or either side to turn pages.');
   updateBookContext();
+  updateBookmarkAction();
 }
 function readPage(delta) {
   const next=currentReadPage+delta;
@@ -1080,6 +1140,13 @@ function changeReaderFont(delta) {
 function setReaderSpacing(value) {readerLineHeight=value;applyReaderPrefs();}
 function setReaderMargin(value) {readerMargin=value;applyReaderPrefs();}
 function size(delta) {changeReaderFont(delta);}
+function setReaderFont(value) { if(!['Inter','Georgia','Arial'].includes(value))return; readerFont=value;applyReaderPrefs(); }
+function bookmarkKey(){return activeChapter+':'+currentReadPage;}
+function toggleBookmark(){const key=bookmarkKey(); if(savedBookmarks.has(key))savedBookmarks.delete(key);else savedBookmarks.add(key);updateBookmarkAction();}
+function updateBookmarkAction(){const button=document.getElementById('bookmarkAction');const saved=savedBookmarks.has(bookmarkKey());button.textContent=saved?'Bookmarked ✓':'Bookmark';button.setAttribute('aria-pressed',String(saved));}
+function toggleJumpPanel(force){const el=document.getElementById('readerJump');el.hidden=typeof force==='boolean'?!force:!el.hidden;}
+function jumpToPercent(){const pct=Number(document.getElementById('jumpPercent').value);currentReadPage=Math.round((readingPages.length-1)*pct/100);savedPosition=readingPages[currentReadPage]?.start||0;toggleJumpPanel(false);renderReader();}
+
 
 document.addEventListener('keydown',e=>{
   if(e.target.matches('button,[role="button"]')&&(e.key==='Enter'||e.key===' '))return;
