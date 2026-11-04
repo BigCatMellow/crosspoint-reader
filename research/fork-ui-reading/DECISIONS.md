@@ -110,4 +110,49 @@ User-approved interface preferences (not firmware implementation approval):
 
 Cross-round interpretation: “Keep visible” means obvious at the relevant moment or in the appropriate controls, not necessarily always rendered over the book. Lighting and orientation need actual X4 Pro capability checks before implementing controls. This audit does not authorize firmware modifications, flashing, or deleting existing features.
 
-Audit status: Rounds 1–5 recorded. Round 6 (device controls, connectivity, and transfers) awaiting user decisions. No HTML or firmware changed by this decision log update.
+Audit status: Rounds 1–5 recorded; Round 6 recorded below. No HTML or firmware changed by this decision log update.
+
+
+## 2026-11-04 — Paper UI feature audit, Round 6: device, connectivity, and transfers
+
+User-approved interface preferences (not firmware implementation approval):
+
+| Feature | Decision | Interpretation / implementation check |
+| --- | --- | --- |
+| Physical Button Customization | Keep accessible | Reachable in device settings; never compromise default physical page turning. |
+| Disable Touch Page Turning | Keep visible | Direct on/off control for page-turn taps; other necessary touch interactions remain usable. Requires separate tap-zone routing verification. |
+| Bluetooth Page Turners | Remove | No dedicated controls in Paper UI; do not remove firmware-level Bluetooth functionality. |
+| USB Book Transfer | Keep visible | Clear transfer entry point and state/instructions when relevant; do not imply transfer works without host/device support. |
+| Wireless Book Transfer | Keep visible | Clear Wi-Fi transfer action and connection information, subject to current firmware capabilities. |
+| Online Book Catalogs (OPDS) | Keep accessible | Secondary book acquisition tool, not part of the default Home screen. |
+| Reading Progress Sync | Remove | No sync controls in Paper UI; preserve underlying firmware implementation and any existing data. |
+| Wi-Fi and Bluetooth Controls | Keep visible | Direct connectivity status and on/off or connection controls in a relevant device screen; no permanent overlay during reading. |
+| Quick Resume / Sleep Behavior | Keep visible | Make resume-to-current-book behavior immediate; expose sleep behavior where relevant without cluttering reading. |
+
+Cross-round interpretation: preserve a clean reading page, but keep transfer, connectivity, lighting, text settings, and touch page-turn behavior easy to access from appropriate direct surfaces. Where “keep visible” refers to an interaction rather than a button (such as quick resume), it means obvious behavior without extra steps. Hardware/firmware feasibility of touch-zone separation, USB, Wi-Fi transfer, and sleep behaviors must be verified before implementation.
+
+Audit status: All six preference rounds recorded. Final integrated feature review follows separately; no HTML or firmware changed by this decision log update.
+
+## 2026-11-04 — Integrated feature review (design proposal, not approved implementation)
+
+### Screen model
+1. **Home:** current book and large Continue Reading action, Library, Settings. Recently read books accessible without taking over Home. Battery shown in stable chrome.
+2. **Reading:** text dominates; physical buttons and touch page-turning. No permanent toolbar, page numbers, covers, or status overlays. A simple temporary control surface provides Table of Contents, Go to Position, search, dictionary, previous location, reading progress/chapter, and settings as appropriate. Avoid persisting controls over prose.
+3. **Library:** text-based title/author entries open books directly, no Book Details screen. Search, sort, recent, and collections/folders are available on demand.
+4. **Reading Settings:** directly expose font, size, line spacing, margins, paragraph formatting, and presets, with alignment/hyphenation on demand. Font and preset availability must be implemented/verified; do not display simulated functionality as native.
+5. **Display & Device:** direct brightness, warmth, orientation, battery, touch-page-turn disable, connections, transfer, and quick resume/sleep. Rare functions such as refresh cadence, manual refresh, dark mode, sleep screens, button remapping, and OPDS stay accessible without extra reading-page chrome.
+
+### Existing preview conflicts to resolve
+- Remove Bookmark action, Book Details step, cover presentation, and dedicated skip-chapter controls from custom UI.
+- Search and sorting are currently always shown in the Library preview; relocate to accessible on-demand controls.
+- Current Go To / Text tools should remain straightforward; Dictionary and Return to Last Position are desired direct actions but must be verified for real firmware integration.
+- Implement touch-page-turn disable without losing tap-to-open toolbar, dictionary selection, or necessary controls.
+- The old seven-screen native Paper plan includes a mandatory new Book Details screen and should not be treated as current design approval.
+
+### Feasibility and review gates
+- **Confirm in source/device:** automatic rotation detection, warm-light support, font installation and selection, dictionary selection and installed-data path, transfer modes, wake/quick resume, and independent paragraph formatting.
+- **Potential new implementation:** saved reading presets and a touch-page-turn-only disable switch, if unsupported by upstream.
+- **Acceptance checks:** no feature crowds reading page; book opens from Library in one action; Continue Reading resumes in one action; settings visibly reflect the actual values; disabled controls are honest; touch/physical button behavior and ebook contents remain intact.
+- Preserve firmware capabilities, saved settings, file data, and EPUB semantics even for controls removed from Paper UI. No flash, merge, or source change is authorized merely by preference approval.
+
+Review status: design synthesis recorded; behavior and native capability verification pending. HTML mockup remains an older prototype until separately updated.
