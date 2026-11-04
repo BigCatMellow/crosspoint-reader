@@ -46,4 +46,28 @@ User-approved interface preferences (not firmware implementation approval):
 
 Cross-round interpretation: “Keep visible” means straightforward direct access when relevant, not a permanent toolbar over the book. Reading remains full-bleed and distraction-free, per Round 1. Source capability and hardware interaction need checking before implementation.
 
-Audit status: Rounds 1–2 recorded; Round 3 (library and book management) awaiting user decisions. The current HTML mockup and firmware remain unchanged by this decision log update.
+Audit status: Rounds 1–2 recorded; Round 3 recorded below. The current HTML mockup and firmware remain unchanged by this decision log update.
+
+
+## 2026-11-04 — Paper UI feature audit, Round 3: library and book management
+
+User-approved interface preferences (not firmware implementation approval):
+
+| Feature | Decision | Interpretation / implementation check |
+| --- | --- | --- |
+| Continue Reading | Keep visible | Primary Home action; resumes the current book directly. |
+| Recently Read Books | Keep accessible | A direct, uncomplicated way to switch books without crowding Home. |
+| Library Search | Keep accessible | Reachable in the Library on demand, not a permanent field if it costs reading space. |
+| Library Sorting | Keep accessible | Available when needed; avoid taking permanent Library space. |
+| Book Covers | Remove | Text-first library with titles and authors; do not render cover thumbnails in Paper UI. |
+| Book Details | Remove | No mandatory intermediate details screen between a book in Library and reading. |
+| Delete / Remove Books | Remove | No deletion control in custom Paper UI; do not remove existing files or underlying firmware functionality. |
+| Collections / Folders | Keep accessible | Offer navigation by existing organization when needed, without making it the default Library view. |
+
+Cross-round implications:
+- Selecting a book should open it directly; chapter access remains available through the Table of Contents (Round 2).
+- The Home screen must prioritize Continue Reading rather than book metadata or cover art.
+- Do not delete underlying book files, metadata, covers, or device capabilities. "Remove" denotes removal from custom UI only.
+- The current index.html still contains a Book Details screen and visible Library search/sort; reconcile after the audit rather than treating the existing mockup as final.
+
+Audit status: Rounds 1–3 recorded; Round 4 (typography and page layout) awaiting user decisions. No HTML or firmware changed by this record.
