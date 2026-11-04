@@ -70,4 +70,24 @@ Cross-round implications:
 - Do not delete underlying book files, metadata, covers, or device capabilities. "Remove" denotes removal from custom UI only.
 - The current index.html still contains a Book Details screen and visible Library search/sort; reconcile after the audit rather than treating the existing mockup as final.
 
-Audit status: Rounds 1–3 recorded; Round 4 (typography and page layout) awaiting user decisions. No HTML or firmware changed by this record.
+Audit status: Rounds 1–3 recorded; Round 4 recorded below. No HTML or firmware changed by this decision log update.
+
+
+## 2026-11-04 — Paper UI feature audit, Round 4: typography and page layout
+
+User-approved interface preferences (not firmware implementation approval):
+
+| Feature | Decision | Interpretation / implementation check |
+| --- | --- | --- |
+| Font Selection | Keep visible | Direct choice in Reading Settings, showing current font. Installed font availability must be checked against firmware and device storage. |
+| Text Size | Keep visible | Direct increase/decrease with the current value; update reading layout. |
+| Line Spacing | Keep visible | Direct choices, with selected setting clearly indicated. |
+| Page Margins | Keep visible | Direct choices, with selected setting clearly indicated. |
+| Text Alignment | Keep accessible | Access on demand without occupying permanent Reading Settings space. |
+| Hyphenation | Keep accessible | Access on demand; preserve the reading engine's existing behavior. |
+| Paragraph Spacing / Indentation | Keep visible | Direct reading-layout control where firmware support exists; verify whether spacing and indentation are independently adjustable before implementing. |
+| Reading Presets | Keep visible | Easy selection of stored combinations; verify current firmware support and avoid implying saved presets exist if custom storage must be added. |
+
+Cross-round interpretation: These visible typography controls belong on the Reading Settings screen, not as permanent overlays on the book page. Avoid stacking extra screens and menus; prioritize legible, bounded settings layout for the X4 Pro. Presets and paragraph controls may require engineering work beyond the existing mockup; no implementation promises or new feature scope are granted by the audit.
+
+Audit status: Rounds 1–4 recorded. Round 5 (display, lighting, and screen behavior) awaiting user decisions. No HTML or firmware changed by this decision log update.
