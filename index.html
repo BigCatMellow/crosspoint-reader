@@ -757,6 +757,8 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
 button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #111!important;outline-offset:2px}
 button:disabled{cursor:default}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* Reader paging remains in touch zones and physical-button analog keys; no bottom navigation. */
+#reader .reader-footer{display:none!important}
 </style></head><body>
 <header class="preview-tools" aria-label="Preview controls">
   <span class="tool-label">X4 Pro preview</span>
@@ -815,7 +817,7 @@ button:disabled{cursor:default}
 <nav class="reader-direct-tools" aria-label="Reading tools"><button onclick="openChapters('reader')">Contents</button><button onclick="toggleJumpPanel()">Go To</button><button id="returnPosition" onclick="returnToLastPosition()" disabled>Return</button><button onclick="openReaderSettings()">Text Aa</button><button onclick="toggleReaderSearch()">Search</button><button onclick="toggleDictionaryInfo()">Dictionary</button><button onclick="go('display')">Display</button><button onclick="setReaderControls(false)">Close</button></nav><div class="reader-extra" id="readerExtra" hidden></div><div class="reader-jump" id="readerJump" hidden><label for="jumpPercent">Jump to <output id="jumpValue">38%</output></label><input id="jumpPercent" type="range" min="0" max="100" value="38" oninput="document.getElementById('jumpValue').textContent=this.value+'%'"><button onclick="jumpToPercent()">Go</button><button onclick="toggleJumpPanel(false)">Cancel</button></div>
 <div id="readerText" tabindex="-1" role="group" aria-label="Book text. Tap left or right to turn pages, center for controls." title="Tap center for controls, edges to turn pages"></div>
 
-<nav class="reader-footer" aria-label="Page controls"><button id="prevRead" onclick="readPage(-1)" aria-label="Previous page">‹ Previous</button><button id="nextRead" onclick="readPage(1)" aria-label="Next page">Next ›</button></nav>
+
 </section><section class="page" id="chapters"><div class="top"><span>Book</span><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Chapters</h1><div class="stack"><div class="row"><div class="title">I. Down the Rabbit-Hole</div></div><div class="row" onclick="go('reader')"><div class="title">II. The Pool of Tears</div><div class="meta">Current book opening</div></div><div class="row"><div class="title">III. A Caucus-Race and a Long Tale</div></div><div class="row"><div class="title">IV. The Rabbit Sends in a Little Bill</div></div></div><nav class="footer" aria-label="Chapters navigation"><button onclick="go(returnToChapters)">‹ Back</button><button onclick="go('home')">Home</button></nav></section>
 
 <section class="page paper-panel" id="readerQuickSettings">
@@ -963,7 +965,6 @@ function setReaderControls(visible) {
   const reader = document.getElementById('reader');
   reader.classList.toggle('show-controls', readerControlsVisible);
   reader.querySelector('.reader-nav').setAttribute('aria-hidden', String(!readerControlsVisible));
-  reader.querySelector('.reader-footer').setAttribute('aria-hidden', String(!readerControlsVisible));
   reader.querySelector('.reader-direct-tools').setAttribute('aria-hidden', String(!readerControlsVisible));
   document.getElementById('readerExtra').hidden=true;
   if(!readerControlsVisible&&document.activeElement?.closest('#reader .reader-direct-tools'))document.getElementById('readerText').focus({preventScroll:true});
@@ -1175,8 +1176,6 @@ function paginateReading(preservePosition=true) {
 function renderReader() {
   const current=readingPages[currentReadPage];
   document.getElementById('readerText').textContent=current?.text||'';
-  document.getElementById('prevRead').disabled=currentReadPage===0;
-  document.getElementById('nextRead').disabled=currentReadPage>=readingPages.length-1;
   document.getElementById('readerText').setAttribute('aria-label','Reading text. Tap center to show controls or either side to turn pages.');
   updateBookContext();
   document.getElementById('returnPosition').disabled=previousReadingPosition===null;
