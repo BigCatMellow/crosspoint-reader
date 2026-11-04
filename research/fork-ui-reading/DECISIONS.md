@@ -27,4 +27,23 @@ User-approved interface preferences (not a firmware implementation approval):
 
 Guiding outcome: reading text dominates; common interactions feel immediate and obvious, without persistent chrome. The newer HTML mockup currently shows a bookmark action and will need reconciliation after the full feature audit.
 
-Status: Round 1 recorded. Round 2 (navigation and reading tools) awaiting user decisions. No HTML or firmware changed by this record.
+Status: Round 1 recorded. Round 2 recorded below. No HTML or firmware changed by this record.
+
+
+## 2026-11-04 — Paper UI feature audit, Round 2: navigation and reading tools
+
+User-approved interface preferences (not firmware implementation approval):
+
+| Feature | Decision | Interpretation / implementation check |
+| --- | --- | --- |
+| Table of Contents | Keep accessible | Easy to reach on demand; no permanently displayed chapter list. |
+| Previous / Next Chapter | Remove | No dedicated skip-chapter controls in Paper UI; preserve normal chapter navigation through Contents. |
+| Go to Position | Keep visible | Offer a direct, clear location-jump action when navigation controls are displayed; avoid adding permanent chrome on the reading page. |
+| Search Within Book | Keep accessible | Available from a simple reading-tools entry point, not a persistent search field. |
+| Dictionary | Keep visible | Direct word lookup affordance during reading; depends on an installed dictionary and input/selection support, to be verified in firmware. |
+| Footnotes | Remove | No dedicated Paper UI footnote tool; do not suppress EPUB note links/content or delete underlying reader behavior. |
+| Return to Last Position | Keep visible | Direct way to return after a navigation jump; show when a previous position exists. |
+
+Cross-round interpretation: “Keep visible” means straightforward direct access when relevant, not a permanent toolbar over the book. Reading remains full-bleed and distraction-free, per Round 1. Source capability and hardware interaction need checking before implementation.
+
+Audit status: Rounds 1–2 recorded; Round 3 (library and book management) awaiting user decisions. The current HTML mockup and firmware remain unchanged by this decision log update.
