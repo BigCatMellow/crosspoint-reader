@@ -734,24 +734,9 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
 </section>
 <section class="page" id="library"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="library-utility"><button onclick="toggleLibraryTools()">Find / Sort</button><button onclick="toggleLibraryFolders()">Folders</button></div><p id="libraryNotice" class="demo-note" hidden></p><div class="library-direct" hidden><input class="library-search" type="search" placeholder="Search title or author" aria-label="Search books" oninput="setLibrarySearch(this.value)"><label>Sort <select class="library-sort" aria-label="Sort books" onchange="setLibrarySort(this.value)"><option value="recent">Recent</option><option value="title">Title</option><option value="author">Author</option></select></label></div><div class="stack library-cards"><div class="row" onclick="go('book')"><div class="title">Alice’s Adventures in Wonderland</div><div class="meta">Lewis Carroll · 38%</div></div><div class="row"><div class="title">Frankenstein</div><div class="meta">Mary Shelley · Not started</div></div><div class="row"><div class="title">Pride and Prejudice</div><div class="meta">Jane Austen · Not started</div></div><div class="row"><div class="title">The Time Machine</div><div class="meta">H. G. Wells · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button disabled>‹ Previous</button><button onclick="go('library2')">Next ›</button></div></section>
 <section class="page" id="library2"><div class="top"><button class="crumb-btn" onclick="go('home')">‹ Home</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Books</h1><div class="library-utility"><button onclick="toggleLibraryTools()">Find / Sort</button><button onclick="toggleLibraryFolders()">Folders</button></div><p class="demo-note library-folder-panel" hidden>Folder browsing uses device library data.</p><div class="library-direct" hidden><input class="library-search" type="search" placeholder="Search title or author" aria-label="Search books" oninput="setLibrarySearch(this.value)"><label>Sort <select class="library-sort" aria-label="Sort books" onchange="setLibrarySort(this.value)"><option value="recent">Recent</option><option value="title">Title</option><option value="author">Author</option></select></label></div><div class="stack library-cards"><div class="row"><div class="title">The Adventures of Sherlock Holmes</div><div class="meta">Arthur Conan Doyle · Not started</div></div><div class="row"><div class="title">The Wonderful Wizard of Oz</div><div class="meta">L. Frank Baum · Not started</div></div><div class="row"><div class="title">The Secret Garden</div><div class="meta">Frances Hodgson Burnett · Not started</div></div></div><div class="footer" aria-label="Library navigation"><button onclick="go('library')">‹ Previous</button><button disabled>Next ›</button></div></section>
-<section class="page" id="book"><div class="top"><button class="crumb-btn" onclick="go('library')">‹ Library</button><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div>
-<div class="book-head">
-  <h1>Alice’s Adventures in Wonderland</h1>
-  <span class="book-author">Lewis Carroll</span>
-</div>
-<div class="hero action current-place-card" role="button" tabindex="0" onclick="go('reader')" onkeydown="if(event.key==='Enter'||event.key===' '){go('reader')}"><div class="label">Current Place</div><div class="chapter-title">Down the Rabbit-Hole</div><div class="chapter-number">Chapter I</div><div class="progress"><b></b></div><div class="meta" style="margin-top:10px">Continue Reading ›</div></div>
-<div class="book-actions">
-  <div class="chapters-card" role="button" tabindex="0" onclick="go('chapters')" onkeydown="if(event.key==='Enter'||event.key===' '){go('chapters')}">
-    <div>
-      <div>Chapters</div>
-      <span class="chapters-meta">Browse the book</span>
-    </div>
-    <span class="chapters-arrow">›</span>
-  </div>
-</div>
-</section><section class="page reader" id="reader" aria-label="Reading page">
+<section class="page reader" id="reader" aria-label="Reading page">
 <div class="reader-nav" aria-label="Reader controls">
-  <button class="back-arrow" onclick="go('book')" aria-label="Back">‹</button>
+  <button class="back-arrow" onclick="go('home')" aria-label="Back home">‹</button>
   <span class="chapter">Chapter I</span>
   <button class="reader-settings" onclick="openReaderSettings()" aria-label="Reading Settings">Aa</button>
 </div>
@@ -759,7 +744,7 @@ body.actual-size.preview-overflow .preview-stage{flex:none}
 <div id="readerText" role="group" aria-label="Book text. Tap left or right to turn pages, center for controls." title="Tap center for controls, edges to turn pages"></div>
 
 <nav class="reader-footer" aria-label="Page controls"><button id="prevRead" onclick="readPage(-1)" aria-label="Previous page">‹ Previous</button><button id="nextRead" onclick="readPage(1)" aria-label="Next page">Next ›</button></nav>
-</section><section class="page" id="chapters"><div class="top"><span>Book</span><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Chapters</h1><div class="stack"><div class="row"><div class="title">I. Down the Rabbit-Hole</div></div><div class="row" onclick="go('reader')"><div class="title">II. The Pool of Tears</div><div class="meta">Current book opening</div></div><div class="row"><div class="title">III. A Caucus-Race and a Long Tale</div></div><div class="row"><div class="title">IV. The Rabbit Sends in a Little Bill</div></div></div><nav class="footer" aria-label="Chapters navigation"><button onclick="go('book')">‹ Back</button><button onclick="go('home')">Home</button></nav></section>
+</section><section class="page" id="chapters"><div class="top"><span>Book</span><span class="battery-status" role="img" aria-label="Battery 82 percent" title="Demo battery level"><svg viewBox="0 0 24 14" aria-hidden="true"><rect x="1" y="2" width="19" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="4" width="13" height="6" fill="currentColor"/></svg><span>82%</span></span></div><h1>Chapters</h1><div class="stack"><div class="row"><div class="title">I. Down the Rabbit-Hole</div></div><div class="row" onclick="go('reader')"><div class="title">II. The Pool of Tears</div><div class="meta">Current book opening</div></div><div class="row"><div class="title">III. A Caucus-Race and a Long Tale</div></div><div class="row"><div class="title">IV. The Rabbit Sends in a Little Bill</div></div></div><nav class="footer" aria-label="Chapters navigation"><button onclick="go(returnToChapters)">‹ Back</button><button onclick="go('home')">Home</button></nav></section>
 
 <section class="page" id="readerQuickSettings">
   <div class="reader-nav">
@@ -911,34 +896,15 @@ function setProgress(el, amount) {
   const bar=el.querySelector('.progress b');
   if(bar) bar.style.width=fmtPercent(amount);
 }
-function updateBookContext() {
-  const book=BOOKS[activeBook];
-  text('#home .book-title', BOOKS[0].title);
-  text('#home .book-author', BOOKS[0].author);
+function updateBookContext(){
+  text('#home .book-title',BOOKS[0].title);
+  text('#home .book-author',BOOKS[0].author);
   text('#home .home-current-place .chapter-title',CHAPTERS[activeChapter]);
   text('#home .home-current-place .chapter-number','Chapter '+chapterNumerals[activeChapter]);
   text('#home .progress-row span:last-child',fmtPercent(aliceProgress())+' read');
-  setProgress(document.querySelector('#home .home-hero'), aliceProgress());
-  text('#book .book-head h1',book.title);
-  text('#book .book-head .book-author',book.author);
-  text('#book .current-place-card .chapter-title',activeBook===0?CHAPTERS[activeChapter]:'Not started');
-  text('#book .current-place-card .chapter-number',activeBook===0?'Chapter '+chapterNumerals[activeChapter]:'');
-  const placeCard=document.querySelector('#book .current-place-card');
-  const available=activeBook===0;
-  placeCard.setAttribute('aria-disabled', String(!available));
-  placeCard.tabIndex=available?0:-1;
-  placeCard.classList.toggle('unavailable', !available);
-  const callToAction=placeCard.querySelector('.meta');
-  if(callToAction) callToAction.textContent=available?'Continue Reading ›':'Not available in demo';
-  setProgress(document.querySelector('#book .current-place-card'),activeBook===0?currentProgress():0);
-  const chapterCard=document.querySelector('#book .chapters-card');
-  if(chapterCard) {
-    chapterCard.tabIndex=activeBook===0?0:-1;
-    chapterCard.setAttribute('aria-disabled',activeBook===0?'false':'true');
-    chapterCard.style.opacity=activeBook===0?'1':'.65';
-  }
-  const chapterName=document.querySelector('#reader .reader-nav .chapter');
-  if(chapterName) chapterName.textContent='Chapter '+chapterNumerals[activeChapter];
+  setProgress(document.querySelector('#home .home-hero'),aliceProgress());
+  const label=document.querySelector('#reader .reader-nav .chapter');
+  if(label)label.textContent='Chapter '+chapterNumerals[activeChapter];
 }
 function resumeHomeBook() {
   activeBook=0;
@@ -954,10 +920,7 @@ function showBook(index){
     el.hidden=false;
   }
 }
-function openBook() {
-  if(activeBook!==0) return;
-  go('reader');
-}
+function openBook(){if(activeBook===0)go('reader');}
 function openChapters(source) {
   if(activeBook!==0) return;
   returnToChapters=source||'reader';
@@ -1125,6 +1088,7 @@ function renderReader() {
   document.getElementById('returnPosition').disabled=previousReadingPosition===null;
 }
 function readPage(delta) {
+  if(!readingPages.length)return;
   const next=currentReadPage+delta;
   if(next<0||next>=readingPages.length)return;
   currentReadPage=next;
@@ -1284,21 +1248,11 @@ fitDevicePreview();
 // Make the library entries and chapter selection functional.
 renderLibrary();
 renderChapters();
-const place=document.querySelector('#book .current-place-card');
-place.onclick=openBook;
-place.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openBook();}};
-const chaptersCard=document.querySelector('#book .chapters-card');
-chaptersCard.onclick=()=>openChapters('book');
-chaptersCard.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openChapters('book');}};
 const chapterLabel=document.querySelector('#reader .reader-nav .chapter');
-chapterLabel.title='Tap to browse chapters';
+chapterLabel.title='Open table of contents';
 chapterLabel.setAttribute('role','button');chapterLabel.tabIndex=0;
 chapterLabel.onclick=()=>openChapters('reader');
-chapterLabel.onkeydown=e=>{if(e.key==='Enter')openChapters('reader');};
-// Placeholder settings are visibly disabled rather than implying working hardware APIs.
-document.querySelectorAll('#settings .settings-menu button').forEach((button,i)=>{
-  if(i>0){button.disabled=true;button.title='Not implemented in this UI prototype';}
-});
+chapterLabel.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openChapters('reader');}};
 updateBookContext();
 applyReaderPrefs();
 setReaderControls(false);
