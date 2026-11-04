@@ -90,4 +90,24 @@ User-approved interface preferences (not firmware implementation approval):
 
 Cross-round interpretation: These visible typography controls belong on the Reading Settings screen, not as permanent overlays on the book page. Avoid stacking extra screens and menus; prioritize legible, bounded settings layout for the X4 Pro. Presets and paragraph controls may require engineering work beyond the existing mockup; no implementation promises or new feature scope are granted by the audit.
 
-Audit status: Rounds 1–4 recorded. Round 5 (display, lighting, and screen behavior) awaiting user decisions. No HTML or firmware changed by this decision log update.
+Audit status: Rounds 1–4 recorded; Round 5 recorded below. No HTML or firmware changed by this decision log update.
+
+
+## 2026-11-04 — Paper UI feature audit, Round 5: display, lighting, screen behavior
+
+User-approved interface preferences (not firmware implementation approval):
+
+| Feature | Decision | Interpretation / implementation check |
+| --- | --- | --- |
+| Frontlight Brightness | Keep visible | Direct lighting adjustment from an appropriate display control surface; do not permanently overlay the book. Verify device range and native firmware support. |
+| Warm Light / Color Temperature | Keep visible | Direct color-temperature adjustment when X4 Pro hardware/firmware supports it; avoid suggesting a functional control on unsupported targets. |
+| Dark Mode | Keep accessible | Available on demand; not a permanent reading-page control. |
+| Screen Refresh Controls | Keep accessible | Refresh frequency / ghosting options available in display settings. |
+| Manual Screen Refresh | Keep accessible | Trigger refresh on demand, without a permanent reading-page button. |
+| Screen Orientation | Keep visible | Direct manual portrait/landscape control when relevant; earlier automatic-orientation preference remains subject to sensor/firmware verification. |
+| Sleep Screen Customization | Keep accessible | Rarely used configuration, available outside reading surface. |
+| Battery Percentage | Keep visible | Show in stable UI chrome such as Home / open toolbar; avoid constant overlays on text. |
+
+Cross-round interpretation: “Keep visible” means obvious at the relevant moment or in the appropriate controls, not necessarily always rendered over the book. Lighting and orientation need actual X4 Pro capability checks before implementing controls. This audit does not authorize firmware modifications, flashing, or deleting existing features.
+
+Audit status: Rounds 1–5 recorded. Round 6 (device controls, connectivity, and transfers) awaiting user decisions. No HTML or firmware changed by this decision log update.
